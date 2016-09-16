@@ -5,6 +5,9 @@ by [Michael Hartl](http://www.michaelhartl.com/)
 + http://www.theodinproject.com/ruby-on-rails
 + https://www.jitbit.com/alexblog/256-targetblank---the-most-underestimated-vulnerability-ever/
 
++ add remember me feature with token and digest -- that way if user closes browser
+  they can stay logged in
+
 
 Box 6.2. Database indices
 When creating a column in a database, it is important to consider whether we will need to find records by that column. Consider, for example, the email attribute created by the migration in Listing 6.2. When we allow users to log in to the sample app starting in Chapter 7, we will need to find the user record corresponding to the submitted email address. Unfortunately, based on the naïve data model, the only way to find a user by email address is to look through each user row in the database and compare its email attribute to the given email—which means we might have to examine every row (since the user could be the last one in the database). This is known in the database business as a full-table scan, and for a real site with thousands of users it is a Bad Thing.
