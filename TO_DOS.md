@@ -1,4 +1,9 @@
-## To Dos:
+### To Dos:
+
+
+## Stylin'
++ add social prof icons
+
 
 1. Users must create an account
 2. Users can sign in.
