@@ -6,6 +6,11 @@ by [Michael Hartl](http://www.michaelhartl.com/)
 + https://www.jitbit.com/alexblog/256-targetblank---the-most-underestimated-vulnerability-ever/
 
 
+Box 6.2. Database indices
+When creating a column in a database, it is important to consider whether we will need to find records by that column. Consider, for example, the email attribute created by the migration in Listing 6.2. When we allow users to log in to the sample app starting in Chapter 7, we will need to find the user record corresponding to the submitted email address. Unfortunately, based on the naïve data model, the only way to find a user by email address is to look through each user row in the database and compare its email attribute to the given email—which means we might have to examine every row (since the user could be the last one in the database). This is known in the database business as a full-table scan, and for a real site with thousands of users it is a Bad Thing.
+Putting an index on the email column fixes the problem. To understand a database index, it’s helpful to consider the analogy of a book index. In a book, to find all the occurrences of a given string, say “foobar”, you would have to scan each page for “foobar”—the paper version of a full-table scan. With a book index, on the other hand, you can just look up “foobar” in the index to see all the pages containing “foobar”. A database index works essentially the same way.
+
+
 
 -- IE shim --
 Let’s look at the new elements in Listing 5.1 from top to bottom. As alluded to briefly in Section 3.4.1, Rails uses HTML5 by default (as indicated by the doctype <!DOCTYPE html>); since the HTML5 standard is relatively new, some browsers (especially older versions of Internet Explorer) don’t fully support it, so we include some JavaScript code (known as an “HTML5 shim (or shiv)”)3 to work around the issue:
