@@ -1,9 +1,41 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+/* navbar */
+$gray-medium-light: #eaeaea;
+
+.navbar {
+  background-color: #253343;
+  a {
+    color: #f0f6ff;
+    font-family: "Circular", "Avenir Next", sans-serif;
+    font-size: 1.3em;
+  }
+  a:hover {
+    opacity: 0.6;
+    text-decoration: none;
+    color: white;
+  }
+}
+.dropdown-menu > li > a {
+  color: white;
+}
+
+.dropdown-menu {
+  background-color: #253343;
+}
+
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+  background-color: #253343;
+
+}
+
+.nav>li>a:hover, .nav>li>a:focus {
+    background-color: transparent;
+}
+
 
 /* mixins, variables, etc. */
 
-$gray-medium-light: #eaeaea;
 
 @mixin box_sizing {
   -moz-box-sizing:    border-box;
@@ -12,9 +44,34 @@ $gray-medium-light: #eaeaea;
 }
 
 /* universal */
+.jumbotron {
+  margin-top: 20px;
+  background: rgb(245, 245, 245); /* This is for ie8 and below */
+  background: rgba(245, 245, 245, 0.85);
+}
+
 
 body {
+  font-family: "Circular", "Avenir Next", sans-serif;
   padding-top: 60px;
+  padding-bottom: 70px;
+
+  background-color: yellow;
+
+  .container-background {
+    background: rgb(245, 245, 245); /* This is for ie8 and below */
+    background: rgba(245, 245, 245, 0.95);
+    border-radius: 8px;
+    box-shadow: 2.5px 2.5px $gray-light;
+  }
+}
+
+#home {
+  padding: 0;
+  clear:both;
+  background-repeat: repeat;
+  background-image: url(bag-and-hands.jpg);
+  background-size: 1350px;
 }
 
 section {
@@ -25,8 +82,8 @@ textarea {
   resize: vertical;
 }
 
-.center {
-  text-align: center;
+.left {
+  text-align: left;
   h1 {
     margin-bottom: 10px;
   }
@@ -42,16 +99,16 @@ h1 {
   font-size: 3em;
   letter-spacing: -2px;
   margin-bottom: 30px;
-  text-align: center;
+  text-align: left;
 }
 
 h2 {
-  font-size: 1.2em;
-  letter-spacing: -1px;
+  font-size: 1.5em;
+  letter-spacing: -0.5px;
   margin-bottom: 30px;
-  text-align: center;
+  text-align: left;
   font-weight: normal;
-  color: $gray-light;
+  color: $gray;
 }
 
 p {
@@ -68,8 +125,8 @@ p {
   font-size: 1.7em;
   color: white;
   text-transform: uppercase;
-  letter-spacing: -1px;
-  padding-top: 9px;
+  letter-spacing: -0.5px;
+  padding-top: 11px;
   font-weight: bold;
   &:hover {
     color: white;
@@ -80,10 +137,13 @@ p {
 /* footer */
 
 footer {
+  clear: both;
   margin-top: 45px;
   padding-top: 5px;
   border-top: 1px solid $gray-medium-light;
   color: $gray-light;
+  background: rgb(245, 245, 245); /* This is for ie8 and below */
+  background: rgba(245, 245, 245, 0.85);
   a {
     color: $gray;
     &:hover {
@@ -204,4 +264,72 @@ input {
     padding: 10px 0;
     border-bottom: 1px solid $gray-lighter;
   }
+}
+
+/* lists */
+
+.lists {
+  list-style: none;
+  padding: 0;
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+  }
+  .user {
+    margin-top: 5em;
+    padding-top: 0;
+  }
+  .content {
+    display: block;
+    margin-left: 60px;
+    img {
+      display: block;
+      padding: 5px 0;
+    }
+  }
+  .timestamp {
+    color: $gray-light;
+    display: block;
+    margin-left: 60px;
+  }
+  .gravatar {
+    float: left;
+    margin-right: 10px;
+    margin-top: 5px;
+  }
+}
+
+aside {
+  textarea {
+    height: 100px;
+    margin-bottom: 5px;
+  }
+}
+
+span.picture {
+  margin-top: 10px;
+  input {
+    border: 0;
+  }
+}
+
+#user-info-list{
+  list-style: none;
+  text-align: right;
+  .user {
+    text-align: right;
+  }
+  .timestamp {
+    color: $gray-light;
+  }
+  .gravatar {
+    float: right;
+    margin-left: 15px;
+  }
+}
+
+#list-header {
+  background-color: #f5f5f5;
+  padding: 20px;
+  border-radius: 6px;
 }

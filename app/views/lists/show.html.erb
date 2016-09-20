@@ -1,0 +1,20 @@
+<% provide(:title, @list.title) %>
+
+<div id="list-header">
+  <div class="row">
+    <div class="col-md-8">
+      <h1><%=@list.title%> </h1>
+    </div>
+    <div class="col-md-4" id="user-info-list">
+      <p>
+        <span class="user"><%= link_to @list.user.name, @list.user %></span> <%= link_to gravatar_for(@list.user, size: 70), @list.user %>
+      </p>
+      <span class="timestamp">
+         <%= time_ago_in_words(@list.created_at) %> ago
+      </span>
+    </div>
+  </div>
+  <h2><%=@list.description%></h2>
+</div>
+<div class="container">
+</div>
