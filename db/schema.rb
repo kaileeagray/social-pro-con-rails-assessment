@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160920182911) do
+ActiveRecord::Schema.define(version: 20160921164851) do
 
   create_table "lists", force: :cascade do |t|
     t.string   "title",       limit: 80,  null: false
@@ -20,6 +20,16 @@ ActiveRecord::Schema.define(version: 20160920182911) do
     t.datetime "updated_at",              null: false
     t.index ["user_id", "created_at"], name: "index_lists_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_lists_on_user_id"
+  end
+
+  create_table "stars", force: :cascade do |t|
+    t.integer  "list_id"
+    t.integer  "starrer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["list_id", "starrer_id"], name: "index_stars_on_list_id_and_starrer_id", unique: true
+    t.index ["list_id"], name: "index_stars_on_list_id"
+    t.index ["starrer_id"], name: "index_stars_on_starrer_id"
   end
 
   create_table "users", force: :cascade do |t|

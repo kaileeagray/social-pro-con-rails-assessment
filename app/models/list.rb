@@ -1,5 +1,7 @@
 class List < ApplicationRecord
   belongs_to :user
+  has_many :stars, dependent: :destroy
+  has_many :starrers, through: :stars, source: :starrer
 
   default_scope -> { order(created_at: :desc) }
 

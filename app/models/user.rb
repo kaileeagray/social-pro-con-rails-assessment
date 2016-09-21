@@ -1,5 +1,7 @@
 class User < ApplicationRecord
   has_many :lists, dependent: :destroy
+  has_many :stars, foreign_key: "starrer_id", dependent: :destroy
+  has_many :starred, through: :stars, source: :starrer
 
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
