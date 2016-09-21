@@ -1,9 +1,31 @@
+<% if logged_in?%>
+  <div class="row">
+    <aside class="col-md-6">
+      <section class="user_info">
+        <%= render 'shared/user_info'%>
+      </section>
+      <section class="list_form">
+        <%= render 'shared/list_form'%>
+      </section>
+    </aside>
+    <div class="col-md-1">
+    </div>
+    <div class="col-md-5">
+      <h3>List Feed</h3>
+      <%= render 'shared/feed' %>
+    </div>
+  </div>
+<% else %>
 <div class="jumbotron">
   <h1>Social Pro-Con Web App</h1>
   <h2>
-    Create pro-con lists. Star your friends' pro-con lists. <%= link_to("Check out the code!", "https://github.com/kaileeagray/social-pro-con-rails-assessment", target:"_blank", rel:"noopener no referrer")%>
+      Create pro-con lists. Star your friends' pro-con lists.
+      <%= link_to("Check out the code!",
+        "https://github.com/kaileeagray/social-pro-con-rails-assessment",
+        target:"_blank", rel:"noopener no referrer")%>
   </h2>
   <div class="center-block break">
-    <%= link_to "Sign up now!", signup_path, class: "center btn btn-lg btn-primary center-block" %>
+      <%= link_to "Sign up now!", signup_path, class: "center btn btn-lg btn-primary center-block" %>
   </div>
 </div>
+<% end %>

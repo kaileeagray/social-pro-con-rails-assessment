@@ -1,4 +1,5 @@
 ## Resource Trail
++ cool background images: http://subtlepatterns.com/
 + kill existing server: http://stackoverflow.com/questions/4473229/rails-server-says-port-already-used-how-to-kill-that-process
 + http://stackoverflow.com/questions/31039998/address-already-in-use-bind2-errnoeaddrinuse
 + used chp 3 to 14: [*Ruby on Rails Tutorial*](http://www.railstutorial.org/)

@@ -1,0 +1,11 @@
+<%= form_for(@list) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :description, "Description (optional)" %>
+  <%= f.text_area :description%>
+
+  <%= f.submit "Create New List", class: "btn btn-primary" %>
+<% end %>
