@@ -1,0 +1,11 @@
+
+<% @user ||= current_user %>
+<div class="stats">
+  <a href="<%= user_path(@user) %>">
+    <strong class="stat">
+      <%= current_user.lists.count %>
+    </strong>
+    Lists
+    <span></span>
+  </a>
+</div>

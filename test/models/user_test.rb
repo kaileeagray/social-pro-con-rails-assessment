@@ -82,4 +82,15 @@ class UserTest < ActiveSupport::TestCase
       @user.destroy
     end
   end
+
+  test "should star and unstar a list" do
+    orange = lists(:orange)
+    leslie = users(:leslie)
+    assert_not leslie.starred?(orange)
+    leslie.star(orange)
+    assert leslie.starred?(orange)
+    assert orange.starrers.include?(leslie)
+    leslie.unstar(orange)
+    assert_not leslie.starred?(orange)
+  end
 end

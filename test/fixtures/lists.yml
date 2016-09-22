@@ -10,12 +10,12 @@ tau_manifesto:
   created_at: <%= 3.years.ago %>
   user: kailee
 
-cat_video:
+cat:
   title: "Sad cats"
   created_at: <%= 2.hours.ago %>
   user: kailee
 
-most_recent:
+recent:
   title: "Writing a short test"
   created_at: <%= Time.zone.now %>
   user: michael

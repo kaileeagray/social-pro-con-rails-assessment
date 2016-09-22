@@ -1,9 +1,23 @@
 <% if logged_in?%>
   <div class="row">
     <aside class="col-md-6">
-      <section class="user_info">
-        <%= render 'shared/user_info'%>
-      </section>
+      <div class="row list-header">
+        <div class="col-md-8">
+          <section class="user_info">
+            <%= render 'shared/user_info'%>
+          </section>
+        </div>
+        <div class="col-md-2">
+          <section class="stats">
+            <%= render 'shared/user_list_count' %>
+          </section>
+        </div>
+        <div class="col-md-2">
+          <section class="stats">
+            <%= render 'users/starred' %>
+          </section>
+        </div>
+      </div>
       <section class="list_form">
         <%= render 'shared/list_form'%>
       </section>

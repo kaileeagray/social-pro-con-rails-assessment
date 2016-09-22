@@ -37,7 +37,7 @@ class ListTest < ActiveSupport::TestCase
   end
 
   test "order should be most recent first" do
-    assert_equal lists(:most_recent), List.first
+    assert_equal lists(:recent), List.first
   end
 
 end

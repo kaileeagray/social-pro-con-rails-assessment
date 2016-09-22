@@ -53,12 +53,29 @@ $gray-medium-light: #eaeaea;
   box-sizing:         border-box;
 }
 
+@mixin white_rounded_back {
+  background-color: #f5f5f5;
+  padding: 20px;
+  border-radius: 6px;
+}
+
+@mixin shadow($size) {
+  -webkit-box-shadow: 2px 2px 2px rgba(0, 0, 0, $size);
+  -moz-box-shadow: 2px 2px 2px rgba(0, 0, 0, $size);
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, $size);
+}
+
 /* universal */
 .container .jumbotron {
+  align-self: center;
   margin-top: 20px;
   background: rgb(245, 245, 245); /* This is for ie8 and below */
   background: rgba(245, 245, 245, 0.85);
   margin-bottom: 0;
+  h1 {
+    @include shadow(0);
+  }
+  @include shadow(0.25);
 }
 
 .break {
@@ -68,19 +85,17 @@ $gray-medium-light: #eaeaea;
 
 body {
   font-family: "Circular", "Avenir Next", sans-serif;
-  padding-top: 70px;
+  padding-top: 60px;
   padding-bottom: 70px;
   background-image: image-url("notebook.png");
   background-repeat: repeat;
 
   .container-background {
     background: rgb(245, 245, 245); /* This is for ie8 and below */
-    background: rgba(245, 245, 245, 0.75);
+    background: rgba(245, 245, 245, 0.65);
     border-radius: 8px;
-    -webkit-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
-    -moz-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
-    padding-left: 50px;
+    @include shadow(0.5);
+    padding-left: 70px;
     padding-right: 50px
   }
 }
@@ -190,6 +205,8 @@ aside {
       letter-spacing: -1px;
       margin-bottom: 3px;
       margin-top: 0px;
+      background: none;
+      @include shadow(0);
     }
   }
 }
@@ -201,6 +218,38 @@ aside {
 
 .gravatar_edit {
   margin-top: 15px;
+}
+
+.stats {
+  overflow: auto;
+  margin-top: 0;
+  padding: 0;
+  a {
+    padding: 0 10px;
+    color: gray;
+    &:hover {
+      text-decoration: none;
+      color: $gray-darker;
+    }
+  }
+  strong {
+    display: block;
+  }
+}
+
+.user_avatars {
+  overflow: auto;
+  margin-top: 10px;
+  .gravatar {
+    margin: 1px 1px;
+  }
+  a {
+    padding: 0;
+  }
+}
+
+.users.star {
+  padding: 0;
 }
 
 /* forms */
@@ -331,8 +380,25 @@ span.picture {
   }
 }
 
-#list-header {
-  background-color: #f5f5f5;
-  padding: 20px;
-  border-radius: 6px;
+.list-header {
+  @include white_rounded_back;
+  @include shadow(0.25);
+  h1 {
+    padding-left: 10px;
+  }
+  h2 {
+    padding-left: 10px;
+  }
+}
+
+.white_rounded_shadow {
+  @include white_rounded_back;
+  @include shadow(0.25);
+  margin-bottom: 30px;
+}
+
+.right {
+  float: right;
+  align-items: right;
+  align-content: right;
 }

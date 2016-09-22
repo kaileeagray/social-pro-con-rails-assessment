@@ -1,0 +1,9 @@
+<% @user ||= current_user %>
+<div class="stats">
+  <a href="<%= starred_user_path(@user) %>">
+    <strong class="stat">
+      <%= @user.starred.count %>
+    </strong>
+    Saved
+  </a>
+</div>

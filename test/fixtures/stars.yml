@@ -2,8 +2,8 @@
 
 one:
   list: one
-  starred_id: 1
+  starrer_id: 1
 
 two:
   list: two
-  starred_id: 1
+  starrer_id: 1

@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_many :lists, dependent: :destroy
   has_many :stars, foreign_key: "starrer_id", dependent: :destroy
-  has_many :starred, through: :stars, source: :starrer
+  has_many :starred, through: :stars, source: :list
 
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
@@ -56,6 +56,18 @@ class User < ApplicationRecord
 
   def feed
     List.where("user_id = ?", id)
+  end
+
+  def star(list)
+    stars.create(list: list)
+  end
+
+  def unstar(list)
+    stars.find_by(list_id: list.id).destroy
+  end
+
+  def starred?(list)
+    starred.include?(list)
   end
 
   private
