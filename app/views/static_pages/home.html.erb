@@ -5,6 +5,7 @@
         <div class="col-md-6">
           <section class="user_info">
             <%= render :partial => 'shared/user_info', :locals => {user: current_user}%>
+            <%= link_to "view my profile", user_path(current_user) %>
           </section>
         </div>
         <div class="col-md-3">

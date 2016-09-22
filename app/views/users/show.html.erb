@@ -1,14 +1,28 @@
 <% provide(:title, @user.name) %>
 <div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <h1>
-        <%= gravatar_for @user %>
-        <%= @user.name %>
-      </h1>
-    </section>
+  <aside class="col-md-5">
+    <div class="row list-header">
+      <div class="col-md-6">
+        <section class="user_info">
+          <%= render :partial => 'shared/user_info', :locals => {user: @user}%>
+          <% if current_user == @user %>
+            <%= link_to "view my feed", feed_user_path(@user) %>
+          <% end %>
+        </section>
+      </div>
+      <div class="col-md-3">
+        <section class="stats">
+          <%= render 'shared/user_list_count' %>
+        </section>
+      </div>
+      <div class="col-md-3">
+        <section class="stats">
+          <%= render 'users/starred' %>
+        </section>
+      </div>
+    </div>
   </aside>
-  <div class="col-md-8">
+  <div class="col-md-7">
     <% if @user.lists.any? %>
       <h3>Lists (<%= @user.lists.count %>)</h3>
       <ol class="lists">

@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
-  before_action :correct_user,   only: [:edit, :update]
+  before_action :correct_user,   only: [:edit, :update, :feed]
   before_action :admin_user,     only: :destroy
 
   def index
@@ -51,6 +51,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @lists = @user.starred.paginate(page: params[:page])
     render 'shared/show_starred'
+  end
+
+  def feed
+    @feed_items = current_user.feed.paginate(page: params[:page], :per_page => 10)
   end
 
   private
