@@ -2,6 +2,7 @@ class User < ApplicationRecord
   has_many :lists, dependent: :destroy
   has_many :stars, foreign_key: "starrer_id", dependent: :destroy
   has_many :starred, through: :stars, source: :list
+  has_many :items, dependent: :destroy
 
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
@@ -73,6 +74,10 @@ class User < ApplicationRecord
   def feed
     feed_ids = "SELECT list_id FROM stars WHERE starrer_id = :user_id"
     List.where("id IN (#{feed_ids}) OR user_id = :user_id", user_id: id)
+  end
+
+  def items_by_list(list)
+    list.items.where(user_id: self.id)
   end
 
   private

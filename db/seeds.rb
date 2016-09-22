@@ -49,3 +49,13 @@ starrers = users
 
 starred.each { |l| user.star(l) }
 starrers.each { |u| u.star(list)}
+
+lists.each do |l|
+  15.times do
+    l.items.create!(user: l.user, description: Faker::Hacker.say_something_smart)
+  end
+  5.times do
+    l.items.create!(user: User.first, description: Faker::ChuckNorris.fact)
+    l.items.create!(user: User.last, description: Faker::Hipster.sentence(3))
+  end
+end

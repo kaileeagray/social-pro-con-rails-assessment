@@ -29,3 +29,40 @@
   </div>
       <h2 class="left"><%=@list.description%></h2>
 </div>
+<div class="row pro_con_table">
+  <div class="col-md-6">
+    <table class="table table-responsive">
+      <thead>
+        <tr>
+          <th class="left"><h3>Pros</h3></th>
+        </tr>
+      </thead>
+
+      <% @items.each do |item|%>
+        <tr>
+            <td><%=item.description%> </td>
+            <td>
+              by <%=link_to item.user.name, user_path(item.user)%>
+            </td>
+        </tr>
+      <%end%>
+  </table>
+</div>
+<div class="col-md-6">
+  <table class="table table-responsive">
+    <thead>
+      <tr>
+        <th class="left"><h3>Cons</h3></th>
+      </tr>
+    </thead>
+    <% @items.each do |item|%>
+      <tr>
+          <td><%=item.description%> </td>
+          <td>
+            by <%=link_to item.user.name, user_path(item.user)%>
+          </td>
+      </tr>
+    <%end%>
+</table>
+</div>
+</div>
