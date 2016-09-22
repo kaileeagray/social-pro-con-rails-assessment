@@ -47,6 +47,12 @@ class UsersController < ApplicationController
     redirect_to users_url
   end
 
+  def starred
+    @user = User.find(params[:id])
+    @lists = @user.starred.paginate(page: params[:page])
+    render 'shared/show_starred'
+  end
+
   private
 
     def user_params

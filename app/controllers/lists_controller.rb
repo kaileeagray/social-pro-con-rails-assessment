@@ -31,6 +31,13 @@ class ListsController < ApplicationController
     redirect_to root_url
   end
 
+  def starrers
+    @title = "Starrers"
+    @list = List.find(params[:id])
+    @users = @list.starrers.paginate(page: params[:page])
+    render 'shared/show_starrers'
+  end
+
   private
     def list_params
       params.require(:list).permit(:title, :description)

@@ -6,7 +6,7 @@
       <div class="row">
         <div class="col-md-9">
           <h1 class="left"><%=@list.title%> </h1>
-          <h4 class="left">starred <%=pluralize(@list.starrers.count, "time")%></h4>
+          <a href="<%=@list.id%>/starrers"><h4 class="left">starred <%=pluralize(@list.starrers.count, "time")%></h4></a>
         </div>
         <% if logged_in?%>
           <div class="col-md-3 break right">
