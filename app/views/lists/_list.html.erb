@@ -1,12 +1,9 @@
 <li id="list-<%= list.id %>">
   <%= link_to gravatar_for(list.user, size: 50), list.user %>
   <span class="user"><%= link_to list.user.name, list.user %></span>
-  <span class="content"><%= link_to list.title, list_path(list) %></span>
+  <span class="content"><%= link_to "#{list.title} (#{list.starrers.count})", list_path(list) %></span>
   <span class="content"><%= list.description %></span>
   <span class="timestamp">
     Posted <%= time_ago_in_words(list.created_at) %> ago.
-    <% if current_user?(list.user) %>
-      <%= link_to "delete", list, method: :delete, data: { confirm: "You sure?" } %>
-    <% end %>
   </span>
 </li>

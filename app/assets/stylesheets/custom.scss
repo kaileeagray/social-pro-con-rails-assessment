@@ -95,8 +95,9 @@ body {
     background: rgba(245, 245, 245, 0.65);
     border-radius: 8px;
     @include shadow(0.5);
-    padding-left: 70px;
-    padding-right: 50px
+    padding-left: 55px;
+    padding-right: 55px;
+    padding-top: 0;
   }
 }
 
@@ -176,7 +177,7 @@ footer {
     list-style: none;
     li {
       float: left;
-      margin-left: 15px;
+      margin-left: 10px;
     }
   }
 }
@@ -185,7 +186,7 @@ footer {
 
 aside {
   section.user_info {
-    margin-top: 20px;
+    margin-top: 0;
   }
   section {
     padding: 10px 0;
@@ -203,8 +204,6 @@ aside {
       font-size: 1.4em;
       text-align: left;
       letter-spacing: -1px;
-      margin-bottom: 3px;
-      margin-top: 0px;
       background: none;
       @include shadow(0);
     }
@@ -391,11 +390,15 @@ span.picture {
 .list-header {
   @include white_rounded_back;
   @include shadow(0.25);
-  h1 {
+  padding: 10px;
+  margin: 5px;
+  margin-top: 15px;
+
+  h1, h2, h3, h4 {
     padding-left: 10px;
   }
-  h2 {
-    padding-left: 10px;
+  h4 {
+    color: $gray-light;
   }
 }
 
@@ -409,4 +412,8 @@ span.picture {
   float: right;
   align-items: right;
   align-content: right;
+}
+
+.flash {
+  margin-top: 20px;
 }

@@ -4,11 +4,12 @@
   <div class="row">
     <div class="col-md-9">
       <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-9">
           <h1 class="left"><%=@list.title%> </h1>
+          <h4 class="left">starred <%=pluralize(@list.starrers.count, "time")%></h4>
         </div>
         <% if logged_in?%>
-          <div class="col-md-3 offset-md-1 break right">
+          <div class="col-md-3 break right">
             <% if current_user?(@list.user) %>
               <%= render 'lists/edit_delete_form'%>
             <%else%>
