@@ -1,0 +1,3 @@
+<%= form_for(current_user.stars.find_by(list_id: @list.id), html: { method: :delete }) do |f| %>
+  <%= f.submit "Unstar", class: "btn" %>
+<% end %>

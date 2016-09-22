@@ -7,30 +7,24 @@
         <div class="col-md-8">
           <h1 class="left"><%=@list.title%> </h1>
         </div>
-        <div class="col-md-3 offset-md-1 break right">
-          <% if current_user?(@list.user) %>
-          <div class="row">
-              <div class="col-md-5 offset-md-2">
-                <%= link_to "delete", @list, method: :delete, data: { confirm: "You sure?" }, class: "btn btn-danger"%>
-              </div>
-              <div class="col-md-5">
-                <%= link_to "edit", edit_list_path(@list), class: "btn btn-success"%>
-              </div>
+        <% if logged_in?%>
+          <div class="col-md-3 offset-md-1 break right">
+            <% if current_user?(@list.user) %>
+              <%= render 'lists/edit_delete_form'%>
+            <%else%>
+              <%= render 'lists/star_form'%>
+            <% end %>
           </div>
-          <% end %>
-        </div>
+        <% end %>
       </div>
 
     </div>
     <div class="col-md-3" id="user-info-list">
-      <p>
-        <span class="user"><%= link_to @list.user.name, @list.user %></span> <%= link_to gravatar_for(@list.user, size: 70), @list.user %>
-      </p>
+      <%= render :partial => 'shared/user_info', :locals => {user: @list.user}%>
       <span class="timestamp">
          <%= time_ago_in_words(@list.created_at) %> ago
       </span>
     </div>
   </div>
       <h2 class="left"><%=@list.description%></h2>
-
 </div>

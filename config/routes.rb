@@ -19,4 +19,5 @@ Rails.application.routes.draw do
       get :starrers
     end
   end
+  resources :stars, only: [:create, :destroy]
 end
