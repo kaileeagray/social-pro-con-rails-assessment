@@ -70,6 +70,11 @@ class User < ApplicationRecord
     starred.include?(list)
   end
 
+  def feed
+    feed_ids = "SELECT list_id FROM stars WHERE starrer_id = :user_id"
+    List.where("id IN (#{feed_ids}) OR user_id = :user_id", user_id: id)
+  end
+
   private
 
   def downcase_email

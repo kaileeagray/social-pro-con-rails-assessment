@@ -1,18 +1,18 @@
 <% if logged_in?%>
   <div class="row">
-    <aside class="col-md-6">
+    <aside class="col-md-5">
       <div class="row list-header">
-        <div class="col-md-8">
+        <div class="col-md-6">
           <section class="user_info">
             <%= render :partial => 'shared/user_info', :locals => {user: current_user}%>
           </section>
         </div>
-        <div class="col-md-2">
+        <div class="col-md-3">
           <section class="stats">
             <%= render 'shared/user_list_count' %>
           </section>
         </div>
-        <div class="col-md-2">
+        <div class="col-md-3">
           <section class="stats">
             <%= render 'users/starred' %>
           </section>
@@ -22,9 +22,7 @@
         <%= render 'shared/list_form'%>
       </section>
     </aside>
-    <div class="col-md-1">
-    </div>
-    <div class="col-md-5">
+    <div class="col-md-7">
       <h3>List Feed</h3>
       <%= render 'shared/feed' %>
     </div>
