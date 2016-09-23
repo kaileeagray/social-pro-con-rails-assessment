@@ -10,23 +10,24 @@ class List < ApplicationRecord
   validates :title, presence: true, length: { maximum: 80 }
   validates :description, allow_blank: true, length: { maximum: 280 }
 
-  def owner_items
-    self.items.where(user_id: self.user_id)
+  def items_by_user_id(user_id)
+    self.items.where(user_id: user_id)
   end
 
-  def contributors_items
-    self.items.where(user_id: get_contributors)
+  def owner_items
+    self.items_by_user_id(self.user_id)
   end
 
   def get_contributors
     self.items.pluck(:user_id).uniq - [self.user_id]
   end
 
-  def contributor_items(user_id)
-    contributors_items.where(user_id: user_id)
-  end
-
   def contributor_items_hash
+    hash = {}
+    self.get_contributors.each do |id|
+      hash[id] = self.items_by_user_id(id)
+    end
+    hash
   end
 
 end

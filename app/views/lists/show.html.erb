@@ -38,7 +38,7 @@
         </tr>
       </thead>
 
-      <% @items.each do |item|%>
+      <% @owner_items.each do |item|%>
         <tr>
             <td><%=item.description%> </td>
             <td>
@@ -55,7 +55,7 @@
         <th class="left"><h3>Cons</h3></th>
       </tr>
     </thead>
-    <% @items.each do |item|%>
+    <% @owner_items.each do |item|%>
       <tr>
           <td><%=item.description%> </td>
           <td>

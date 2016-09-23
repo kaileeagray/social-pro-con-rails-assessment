@@ -4,7 +4,8 @@ class ListsController < ApplicationController
 
   def show
     @list = List.find_by(id: params[:id])
-    @owner_items = 
+    @owner_items = @list.owner_items
+    
   end
 
   def new
