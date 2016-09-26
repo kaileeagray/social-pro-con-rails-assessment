@@ -1,7 +1,8 @@
 ## Resource Trail
-+ Everytime I think I'm getting this weird rare error, GOOGLE TO THE RESCURE: https://github.com/ffi/ffi/issues/447.
++ Everytime I think I'm getting this weird rare error, GOOGLE TO THE RESCUE: https://github.com/ffi/ffi/issues/447.
 https://github.com/rowland/activerecord-fb-adapter/issues/61
 
+NOPE.
 
  This wasn't my problem but it hinted at the Gemfile.
   So, I bundle update and BOOM. Working. Le sigh.

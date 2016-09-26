@@ -5,7 +5,7 @@ class ListsController < ApplicationController
   def show
     @list = List.find_by(id: params[:id])
     @owner_items = @list.owner_items
-    
+    # @contributor_items_hash = @list.contributor_items_hash
   end
 
   def new

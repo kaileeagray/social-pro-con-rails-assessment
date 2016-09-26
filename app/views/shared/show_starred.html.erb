@@ -1,5 +1,5 @@
 <% provide(:title, "Starred Lists") %>
-<h3 class=" left white_rounded_shadow"><%=link_to "#{@user.name}'s", user_path(@user)%>  Starred Lists</h3>
+<h3 class="left"><%=link_to "#{@user.name}'s", user_path(@user)%>  Starred Lists</h3>
 <div class="container">
   <ol class="lists">
     <%=render @lists%>
