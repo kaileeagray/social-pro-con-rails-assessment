@@ -1,15 +1,21 @@
-<div class="col-md-6">
+<div class="col-md-6 <%= pro_con.downcase%>">
   <h1 class="left"><%=pro_con%></h1>
 
   <table class="table table-responsive">
     <%= render partial: 'items/item_user', locals: {user: list.user}%>
-    <%= render @owner_items %>
+    <%= render :partial => "items/item", :collection => owner_items, :as => :item %>
   </table>
 
   <% contributor_items_hash.each do |user, items|%>
     <table class="table table-responsive">
       <%= render partial: 'items/item_user', locals: {user: user}%>
-      <%= render items %>
+      <%= render :partial => "items/item", :collection => items, :as => :item %>
     </table>
   <%end%>
+
+  <table class="table table-responsive">
+    <thead>
+      <h2 class="right">Weight Total: <%= sum %></h2>
+    </thead>
+  </table>
 </div>

@@ -31,22 +31,25 @@ class List < ApplicationRecord
   end
 
   def contributor_items_hash
-    hash = {}
+    hash = {"pros" => {}, "cons" => {}}
     self.get_contributors.each do |id|
-      hash[User.find(id)] = {
-        "pros" => self.items_by_user_id(id).where(pro_con: true),
-        "cons" => self.items_by_user_id(id).where(pro_con: false)
-      }
+      hash["pros"][User.find(id)] = self.items_by_user_id(id).where(pro_con: true)
+      hash["cons"][User.find(id)] = self.items_by_user_id(id).where(pro_con: false)
     end
     hash
   end
 
-  def pro_weight_sum
-
+  def pro_sum
+    items.where(pro_con: true).inject(0){|sum,x| sum + x.weight }
   end
 
-  def con_weight_sum
+  def con_sum
+    items.where(pro_con: false).inject(0){|sum,x| sum + x.weight }
+  end
 
+
+  def pro_con_sum
+    pro_sum - con_sum
   end
 
 end
