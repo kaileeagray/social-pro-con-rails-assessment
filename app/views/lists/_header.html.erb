@@ -1,0 +1,29 @@
+
+<div class="list-header">
+  <div class="row">
+    <div class="col-md-9">
+      <div class="row">
+        <div class="col-md-9">
+          <h1 class="left"><%=list.title%> </h1>
+          <a href="<%=list.id%>/starrers"><h4 class="left">starred <%=pluralize(list.starrers.count, "time")%></h4></a>
+        </div>
+        <% if logged_in?%>
+          <div class="col-md-3 break right">
+            <% if current_user?(list.user) %>
+              <%= render 'lists/edit_delete_form'%>
+            <%else%>
+              <%= render 'lists/star_form'%>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-md-3" id="user-info-list">
+      <%= render :partial => 'shared/user_info', :locals => {user: list.user}%>
+      <span class="timestamp">
+         <%= time_ago_in_words(list.created_at) %> ago
+      </span>
+    </div>
+  </div>
+  <h2 class="left"><%=list.description%></h2>
+</div>

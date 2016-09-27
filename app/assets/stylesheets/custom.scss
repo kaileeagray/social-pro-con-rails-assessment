@@ -89,16 +89,6 @@ body {
   padding-bottom: 70px;
   background-image: image-url("notebook.png");
   background-repeat: repeat;
-
-  .container-background {
-    background: rgb(245, 245, 245); /* This is for ie8 and below */
-    background: rgba(245, 245, 245, 0.65);
-    border-radius: 8px;
-    @include shadow(0.5);
-    padding-left: 55px;
-    padding-right: 55px;
-    padding-top: 0;
-  }
 }
 
 
@@ -313,7 +303,6 @@ input {
   li {
     overflow: auto;
     padding: 10px 0;
-    border-bottom: 1px solid $gray-lighter;
   }
 }
 
@@ -324,7 +313,6 @@ input {
   padding: 0;
   li {
     padding: 10px 0;
-    border-top: 1px solid #e8e8e8;
   }
   .user {
     margin-top: 5em;
@@ -422,4 +410,8 @@ span.picture {
   th {
     border-top: none;
   }
+}
+
+.col-md-7 {
+  padding-left: 35px;
 }

@@ -1,70 +1,9 @@
 <% provide(:title, @list.title) %>
 
-<div class="list-header">
+<%= render partial: 'lists/header', locals: {list: @list}%>
+<div class="container">
   <div class="row">
-    <div class="col-md-9">
-      <div class="row">
-        <div class="col-md-9">
-          <h1 class="left"><%=@list.title%> </h1>
-          <a href="<%=@list.id%>/starrers"><h4 class="left">starred <%=pluralize(@list.starrers.count, "time")%></h4></a>
-        </div>
-        <% if logged_in?%>
-          <div class="col-md-3 break right">
-            <% if current_user?(@list.user) %>
-              <%= render 'lists/edit_delete_form'%>
-            <%else%>
-              <%= render 'lists/star_form'%>
-            <% end %>
-          </div>
-        <% end %>
-      </div>
-
-    </div>
-    <div class="col-md-3" id="user-info-list">
-      <%= render :partial => 'shared/user_info', :locals => {user: @list.user}%>
-      <span class="timestamp">
-         <%= time_ago_in_words(@list.created_at) %> ago
-      </span>
-    </div>
+    <%= render partial: 'items/pros_cons', locals: {pro_con: "Pros", list: @list, owner_items: @owner_items, contributor_items_hash: @contributor_items_hash}%>
+    <%= render partial: 'items/pros_cons', locals: {pro_con: "Cons", list: @list, owner_items: @owner_items, contributor_items_hash: @contributor_items_hash}%>
   </div>
-      <h2 class="left"><%=@list.description%></h2>
-</div>
-<div class="row pro_con_table">
-  <div class="col-md-6">
-    <table class="table table-responsive">
-      <thead>
-        <tr>
-          <th class="left"><h3>Pros</h3></th>
-        </tr>
-      </thead>
-
-      <% @owner_items.each do |item|%>
-        <tr>
-            <td><%=item.description%> </td>
-            <td>
-              by <%=link_to item.user.name, user_path(item.user)%>
-            </td>
-        </tr>
-      <%end%>
-
-
-  </table>
-</div>
-<div class="col-md-6">
-  <table class="table table-responsive">
-    <thead>
-      <tr>
-        <th class="left"><h3>Cons</h3></th>
-      </tr>
-    </thead>
-    <% @owner_items.each do |item|%>
-      <tr>
-          <td><%=item.description%> </td>
-          <td>
-            by <%=link_to item.user.name, user_path(item.user)%>
-          </td>
-      </tr>
-    <%end%>
-</table>
-</div>
 </div>

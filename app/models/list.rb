@@ -25,7 +25,7 @@ class List < ApplicationRecord
   def contributor_items_hash
     hash = {}
     self.get_contributors.each do |id|
-      hash[id] = self.items_by_user_id(id)
+      hash[User.find(id)] = self.items_by_user_id(id)
     end
     hash
   end
