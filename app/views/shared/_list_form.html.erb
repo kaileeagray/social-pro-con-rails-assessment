@@ -7,5 +7,22 @@
   <%= f.label :description, "Description (optional)" %>
   <%= f.text_area :description%>
 
+  <% if current_page?(new_list_path) %>
+  <div class="row">
+  <div class="col-md-6">
+    <%= f.fields_for @pro do |builder|%>
+      <%= render :partial => 'items/form', :f => builder, locals: {item: @pro, hide: true, pro_con: true} %>
+    <%end%>
+  </div>
+
+  <div class="col-md-6">
+    <%= f.fields_for @con do |builder|%>
+      <%= render :partial => 'items/form', :f => builder, locals: {item: @con, hide: true, pro_con: false} %>
+    <%end%>
+  </div>
+  </div>
+  <% end %>
+
+
   <%= f.submit "Create New List", class: "btn btn-primary" %>
 <% end %>

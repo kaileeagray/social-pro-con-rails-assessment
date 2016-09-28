@@ -4,6 +4,9 @@ class List < ApplicationRecord
   has_many :starrers, through: :stars, source: :starrer
   has_many :items, dependent: :destroy
 
+  accepts_nested_attributes_for :items
+
+
 
   default_scope -> { order(created_at: :desc) }
 

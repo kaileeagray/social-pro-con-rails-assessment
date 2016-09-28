@@ -18,7 +18,9 @@ Rails.application.routes.draw do
   resources :lists do
     member do
       get :starrers
+      resources :items
     end
   end
   resources :stars, only: [:create, :destroy]
+
 end

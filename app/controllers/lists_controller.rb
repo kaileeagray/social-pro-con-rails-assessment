@@ -2,6 +2,7 @@ class ListsController < ApplicationController
   before_action :logged_in_user, only: [:create, :destroy, :update]
   before_action :correct_user,   only: [:destroy, :update]
 
+
   def show
     @list = List.find_by(id: params[:id])
     @owner_items_hash = @list.owner_items_hash
@@ -10,6 +11,8 @@ class ListsController < ApplicationController
 
   def new
     @list = current_user.lists.build
+    @pro = @list.items.build(pro_con: true)
+    @con = @list.items.build(pro_con: false)
   end
 
   def create

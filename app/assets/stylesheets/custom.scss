@@ -284,16 +284,6 @@ input {
   margin-left: 0;
 }
 
-/* miscellaneous */
-
-.debug_dump {
-  clear: both;
-  float: left;
-  width: 100%;
-  margin-top: 45px;
-  @include box_sizing;
-}
-
 
 /* Users index */
 
@@ -405,13 +395,15 @@ span.picture {
   margin-top: 20px;
 }
 
-.pro_con_table {
-  padding: 10px;
-  th {
-    border-top: none;
-  }
-}
 
 .col-md-7 {
   padding-left: 35px;
+}
+
+.bottom {
+  margin-top: inherit;
+}
+
+.float_left {
+  float: left;
 }

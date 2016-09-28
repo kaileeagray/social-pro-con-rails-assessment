@@ -2,7 +2,7 @@
 
 <%= render partial: 'lists/header', locals: {list: @list}%>
 <div class="container">
-  <div class="row border-between">
+  <div class="row">
     <%= render partial: 'items/pros_cons', locals: {pro_con: "Pros", list: @list, owner_items: @owner_items_hash["pros"], contributor_items_hash: @contributor_items_hash["pros"], sum: @list.pro_sum}%>
     <%= render partial: 'items/pros_cons', locals: {pro_con: "Cons", list: @list, owner_items: @owner_items_hash["cons"], contributor_items_hash: @contributor_items_hash["cons"], sum: @list.con_sum}%>
     <%= %>
