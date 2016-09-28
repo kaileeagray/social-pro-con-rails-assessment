@@ -36,8 +36,8 @@ class List < ApplicationRecord
   def contributor_items_hash
     hash = {"pros" => {}, "cons" => {}}
     self.get_contributors.each do |id|
-      hash["pros"][User.find(id)] = self.items_by_user_id(id).where(pro_con: true)
-      hash["cons"][User.find(id)] = self.items_by_user_id(id).where(pro_con: false)
+      hash["pros"][User.find(id)] = self.items_by_user_id(id).where(pro_con: true) unless self.items_by_user_id(id).where(pro_con: true).empty?
+      hash["cons"][User.find(id)] = self.items_by_user_id(id).where(pro_con: false) unless self.items_by_user_id(id).where(pro_con: false).empty?
     end
     hash
   end

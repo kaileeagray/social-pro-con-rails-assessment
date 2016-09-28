@@ -1,47 +1,18 @@
-<% provide(:title, "New Pro/Con") %>
-
-<% if !hide.empty? && hide %>
     <%= form_for :item, url: items_path do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
 
       <%= f.hidden_field :pro_con, :value => :pro_con %>
+      <%= f.hidden_field :user_id, :value => item.user_id %>
 
       <%= f.hidden_field :list_id, :value => item.list_id %>
-      <div class="row">
+      <div class="row break">
         <div class="col-md-10">
           <%= f.label "Add #{item.pro_con_name}" %>
           <%= f.text_area :description, class: 'form-control' %>
         </div>
-        <div class="col-md-2 left-float">
+        <div class="col-md-2">
           <%= f.label :weight %>
           <%= f.number_field(:weight, in: 0..10)%>
         </div>
     </div>
-
-
-      <%= f.submit "Add ", class: "btn btn-primary" unless hide%>
-    <% end %>
-
-
-<% else %>
-<% provide(:title, "New Pro/Con") %>
-<div class="row break">
-    <%= form_for :item, url: items_path do |f| %>
-
-      <%= render 'shared/error_messages', object: f.object %>
-
-      <%= f.hidden_field :pro_con, :value => :pro_con %>
-
-      <%= f.hidden_field :list_id, :value => item.list_id %>
-
-      <%= f.label "Pro" %>
-      <%= f.text_area :description, class: 'form-control' %>
-
-      <%= f.label :weight %>
-      <%= f.number_field(:weight, in: 0..10)%>
-
-
-      <%= f.submit "Add ", class: "btn btn-primary" unless hide%>
-    <% end %>
-</div>
-<%end%>
+  <%end%>

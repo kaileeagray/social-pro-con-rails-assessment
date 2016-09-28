@@ -16,6 +16,7 @@ class ListsController < ApplicationController
   end
 
   def create
+    debugger
     store_location
     @list = current_user.lists.build(list_params)
     if @list.save
@@ -24,6 +25,15 @@ class ListsController < ApplicationController
     else
       render 'lists/new'
     end
+  end
+
+  def edit
+    @list = List.find_by(id: params[:id])
+    @pro = @list.items.build(pro_con: true)
+    @con = @list.items.build(pro_con: false)
+  end
+
+  def update
   end
 
   def destroy
@@ -45,7 +55,7 @@ class ListsController < ApplicationController
 
   private
     def list_params
-      params.require(:list).permit(:title, :description)
+      params.require(:list).permit(:title, :description, items_attributes: [:id, :name])
     end
 
     def correct_user
