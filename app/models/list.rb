@@ -42,12 +42,20 @@ class List < ApplicationRecord
     hash
   end
 
+  def pros
+    items.where(pro_con: true)
+  end
+
+  def cons
+    items.where(pro_con: false)
+  end
+
   def pro_sum
-    items.where(pro_con: true).inject(0){|sum,x| sum + x.weight }
+    pros.inject(0){|sum,x| sum + x.weight }
   end
 
   def con_sum
-    items.where(pro_con: false).inject(0){|sum,x| sum + x.weight }
+    cons.inject(0){|sum,x| sum + x.weight }
   end
 
 

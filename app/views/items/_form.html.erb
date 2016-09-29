@@ -2,7 +2,7 @@
       <%= render 'shared/error_messages', object: f.object %>
 
       <%= f.hidden_field :pro_con, :value => :pro_con %>
-      <%= f.hidden_field :user_id, :value => item.user_id %>
+      <%= f.hidden_field :user_id, :value => current_user.id %>
 
       <%= f.hidden_field :list_id, :value => item.list_id %>
       <div class="row break">

@@ -9,20 +9,41 @@
 
   <% if current_page?(new_list_path) %>
   <div class="row">
+    <div class="col-md-6">
+      <%= f.fields_for :items, @pro do |ff|%>
+        <%= render 'shared/error_messages', object: ff.object %>
+        <div class="row break">
+          <div class="col-md-10">
+            <%= ff.label "Add Pro" %>
+            <%= ff.text_area :description, class: 'form-control' %>
+          </div>
+          <div class="col-md-2">
+            <%= ff.label :weight %>
+            <%= ff.number_field(:weight, in: 0..10)%>
+          </div>
+          <%= ff.hidden_field :pro_con, :value => true %>
+          <%= ff.hidden_field :user_id, :value => current_user.id %>
+        </div>
+      <%end%>
+  </div>
   <div class="col-md-6">
-    <%= f.fields_for @pro do |builder|%>
-      <%= render :partial => 'items/form', :f => builder, locals: {item: @pro, hide: true, pro_con: true} %>
-    <%end%>
-  </div>
+      <%= f.fields_for :items, @con do |ff|%>
+        <%= render 'shared/error_messages', object: ff.object %>
+        <div class="row break">
+          <div class="col-md-10">
+            <%= ff.label "Add Con" %>
+            <%= ff.text_area :description, class: 'form-control' %>
+          </div>
+          <div class="col-md-2">
+            <%= ff.label :weight %>
+            <%= ff.number_field(:weight, in: 0..10)%>
+          </div>
+          <%= ff.hidden_field :pro_con, :value => false %>
+          <%= ff.hidden_field :user_id, :value => current_user.id %>
+        </div>
+      <%end%>
+    </div>
 
-  <div class="col-md-6">
-    <%= f.fields_for @con do |builder|%>
-      <%= render :partial => 'items/form', :f => builder, locals: {item: @con, hide: true, pro_con: false} %>
-    <%end%>
-  </div>
-  </div>
-  <% end %>
-
-
+  <%end%>
   <%= f.submit "Create New List", class: "btn btn-primary" %>
 <% end %>

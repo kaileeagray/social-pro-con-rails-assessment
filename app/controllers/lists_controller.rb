@@ -16,10 +16,15 @@ class ListsController < ApplicationController
   end
 
   def create
-    debugger
     store_location
-    @list = current_user.lists.build(list_params)
-    if @list.save
+    @list = current_user.lists.build(title: params["list"]["title"], description: params["list"]["description"])
+    @list.save
+
+    list_params["items_attributes"].values.each do |item|
+      @list.items.create!(item) unless item["description"].empty?
+    end
+
+    if @list.errors.empty?
       flash[:success] = "List created"
       redirect_to list_path(@list)
     else
@@ -55,7 +60,7 @@ class ListsController < ApplicationController
 
   private
     def list_params
-      params.require(:list).permit(:title, :description, items_attributes: [:id, :name])
+      params.require(:list).permit(:title, :description, items_attributes: [:description, :weight, :pro_con, :user_id])
     end
 
     def correct_user
