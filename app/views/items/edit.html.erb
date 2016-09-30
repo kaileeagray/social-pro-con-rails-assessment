@@ -1,1 +1,5 @@
-<%= render partial: 'form', locals: {item: @item, pro_con: true}%>
+<% if @item.pro_con%>
+  <%= render partial: 'form', locals: {url: edit_list_pro_path(@item.list, @item), item: @item, pro_con: @item.pro_con, create_edit: "update", pro_con_name: @item.pro_con_name, }%>
+<% else %>
+  <%= render partial: 'form', locals: {url: edit_list_con_path(@item.list, @item), item: @item, pro_con: @item.pro_con, create_edit: "update", pro_con_name: @item.pro_con_name, }%>
+<% end %>

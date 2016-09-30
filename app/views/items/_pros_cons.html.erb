@@ -2,9 +2,9 @@
   <h1 class="left"><%=pro_con.titlecase%>s <small class="right bottom">&nbsp; total: <%= sum %></small></h1>
   <div class="button-group">
   <%if pro_con == "pro"%>
-    <%= link_to "add pro", new_pro_path, class: "btn btn-small btn-success right"%>
+    <%= link_to "add pro", new_list_pro_path(list), class: "btn btn-small btn-success right"%>
   <%else%>
-    <%= link_to "add con", new_con_path, class: "btn btn-small btn-warning right"%>
+    <%= link_to "add con", new_list_con_path(list), class: "btn btn-small btn-warning right"%>
   <%end%>
   </div>
   <br>

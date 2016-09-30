@@ -6,7 +6,7 @@ class List < ApplicationRecord
 
   accepts_nested_attributes_for :items
 
-
+  # need to create custom writer here!
 
   default_scope -> { order(created_at: :desc) }
 

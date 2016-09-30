@@ -1,7 +1,10 @@
 class ListsController < ApplicationController
-  before_action :logged_in_user, only: [:create, :destroy, :update]
+  before_action :logged_in_user, only: [:create, :destroy, :update, :index]
   before_action :correct_user,   only: [:destroy, :update]
 
+  def index
+    @feed_items = List.all.paginate(page: params[:page], :per_page => 10)
+  end
 
   def show
     @list = List.find_by(id: params[:id])

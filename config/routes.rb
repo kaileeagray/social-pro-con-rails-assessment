@@ -14,13 +14,14 @@ Rails.application.routes.draw do
       get :starred, :feed
     end
   end
+
   resources :lists do
+    resources :cons, controller: :items, :defaults => { :item_type => false }
+    resources :pros, controller: :items, :defaults => { :item_type => true }
     member do
       get :starrers
-      resources :cons, controller: :items, :defaults => { :item_type => false }
-      resources :pros, controller: :items, :defaults => { :item_type => true }
     end
   end
-  resources :stars, only: [:create, :destroy]
 
+  resources :stars, only: [:create, :destroy]
 end

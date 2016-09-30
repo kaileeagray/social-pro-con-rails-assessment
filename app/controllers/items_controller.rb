@@ -1,12 +1,8 @@
 class ItemsController < ApplicationController
-  before_action :set_item
-
-  def show
-  end
 
   def new
     @item = Item.new
-    @item.list_id = params[:id]
+    @item.list_id = params[:list_id]
     @item.pro_con = params[:item_type]
   end
 
@@ -23,9 +19,29 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    if params[:list_id]
+      list = List.find_by(id: params[:list_id])
+      if list.nil?
+        redirect_to lists_path, alert: "List not found."
+      else
+        @item = list.items.find_by(id: params[:id])
+        redirect_to list_items_path(list), alert: "Item not found." if @item.nil?
+      end
+    else
+      @item = Item.find(params[:id])
+    end
   end
 
   def update
+    debugger
+    @item = Item.update(item_params)
+    if @item.save
+      flash[:info] = "Item udpated."
+      redirect_to list_path(@item.list)
+    else
+      flash[:danger] = "Item invalid. Try again."
+      render 'new'
+    end
   end
 
   def destroy
@@ -40,20 +56,14 @@ class ItemsController < ApplicationController
   end
 
   private
-    def set_item
-      @item = Item.find_by(id: params[:id])
-    end
 
-    # def set_pro_con
-    #   if params[:pro_con] == "pro"
-    #     params[:pro_con] == true
-    #   elsif params[:pro_con] == "con"
-    #     params[:pro_con] == false
-    #   end
-    # end
+    def load_list
+      @list = List.find(params[:list_id])
+    end
 
     def item_params
       params.require(:item).permit(:description, :weight, :pro_con, :id, :list_id)
     end
+
 
 end

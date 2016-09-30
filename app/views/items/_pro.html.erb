@@ -1,0 +1,45 @@
+<% if current_user == pro.list.user%>
+<tr>
+  <td class="col-md-1">
+  <%= link_to list_pro_path(pro), class: "btn btn-xs btn-danger right", title: "delete pro", method: "delete" do %>
+      <i class="glyphicon glyphicon-trash"></i>
+  <% end %>
+</td>
+  <td class="col-md-1">
+    <%= link_to edit_list_pro_path(pro.list, pro), class: "btn btn-xs btn-primary right", title: "edit pro" do %>
+        <i class="glyphicon glyphicon-edit"></i>
+    <% end %>
+  </td>
+  <td>
+    <%=pro.description%>
+  </td>
+  <td class="col-md-1">
+    <strong><%=pro.weight%></strong>
+  </td>
+</tr>
+<% elsif current_user == pro.user%>
+<tr>
+
+  <td class="col-md-1">
+    <%= link_to edit_list_pro_path(pro.list, pro), class: "btn btn-xs btn-primary right", title: "edit pro" do %>
+        <i class="glyphicon glyphicon-edit"></i>
+    <% end %>
+  </td>
+  <td>
+    <%=pro.description%>
+  </td>
+  <td class="col-md-1">
+    <strong><%=pro.weight%></strong>
+  </td>
+</tr>
+<% else %>
+<tr>
+
+  <td>
+    <%=pro.description%>
+  </td>
+  <td class="col-md-1">
+    <strong><%=pro.weight%></strong>
+  </td>
+</tr>
+<% end %>

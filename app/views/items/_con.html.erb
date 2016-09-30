@@ -1,0 +1,45 @@
+<% if current_user == con.list.user%>
+<tr>
+  <td class="col-md-1">
+  <%= link_to list_con_path(con.list, con), class: "btn btn-xs btn-danger right", title: "delete con", method: "delete" do %>
+      <i class="glyphicon glyphicon-trash"></i>
+  <% end %>
+</td>
+  <td class="col-md-1">
+    <%= link_to edit_list_con_path(con.list, con), class: "btn btn-xs btn-primary right", title: "edit con" do %>
+        <i class="glyphicon glyphicon-edit"></i>
+    <% end %>
+  </td>
+  <td>
+    <%=con.description%>
+  </td>
+  <td class="col-md-1">
+    <strong><%=con.weight%></strong>
+  </td>
+</tr>
+<% elsif current_user == con.user%>
+<tr>
+
+  <td class="col-md-1">
+    <%= link_to edit_list_con_path(con.list, con), class: "btn btn-xs btn-primary right", title: "edit con" do %>
+        <i class="glyphicon glyphicon-edit"></i>
+    <% end %>
+  </td>
+  <td>
+    <%=con.description%>
+  </td>
+  <td class="col-md-1">
+    <strong><%=con.weight%></strong>
+  </td>
+</tr>
+<% else %>
+<tr>
+
+  <td>
+    <%=con.description%>
+  </td>
+  <td class="col-md-1">
+    <strong><%=con.weight%></strong>
+  </td>
+</tr>
+<% end %>
