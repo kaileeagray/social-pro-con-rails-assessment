@@ -14,7 +14,6 @@ Rails.application.routes.draw do
       get :starred, :feed
     end
   end
-  resources :password_resets, only: [:new, :create, :edit, :update]
   resources :lists do
     member do
       get :starrers

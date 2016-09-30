@@ -29,6 +29,14 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+    @item = Item.find_by(id: params[:id])
+    @list = @item.list
+    if  @item.destroy
+      flash[:success] = "item destroyed"
+    else
+      flash[:danger] = "item not destroyed"
+    end
+    redirect_to list_path(@list)
   end
 
   private
@@ -45,7 +53,7 @@ class ItemsController < ApplicationController
     # end
 
     def item_params
-      params.require(:item).permit(:description, :weight, :pro_con, :list_id)
+      params.require(:item).permit(:description, :weight, :pro_con, :id, :list_id)
     end
 
 end

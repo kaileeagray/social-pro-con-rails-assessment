@@ -1,5 +1,15 @@
 <tr>
   <td>
+  <%= link_to item_path(item), class: "btn btn-xs btn-danger right", title: "delete item", method: "delete" do %>
+      <i class="glyphicon glyphicon-trash"></i>
+  <% end %>
+</td>
+  <td>
+    <%= link_to edit_item_path(item), class: "btn btn-xs btn-primary right", title: "edit item" do %>
+        <i class="glyphicon glyphicon-edit"></i>
+    <% end %>
+  </td>
+  <td>
     <%=item.description%>
   </td>
   <td>
