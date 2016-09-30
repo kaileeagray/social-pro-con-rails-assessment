@@ -7,6 +7,7 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.list_id = params[:id]
+    @item.pro_con = params[:item_type]
   end
 
   def create

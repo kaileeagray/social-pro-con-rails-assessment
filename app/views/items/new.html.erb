@@ -1,1 +1,1 @@
-<%= render partial: 'form', locals: {item: @item, pro_con: true, pro_con_name: "pro"}%>
+<%= render partial: 'form', locals: {item: @item, pro_con: @item.pro_con, pro_con_name: @item.pro_con_name}%>

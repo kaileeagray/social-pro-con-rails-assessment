@@ -18,7 +18,8 @@ Rails.application.routes.draw do
   resources :lists do
     member do
       get :starrers
-      resources :items
+      resources :cons, controller: :items, :defaults => { :item_type => false }
+      resources :pros, controller: :items, :defaults => { :item_type => true }
     end
   end
   resources :stars, only: [:create, :destroy]

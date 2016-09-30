@@ -1,10 +1,9 @@
 ### To Dos:
 + create, edit, delete pros/cons
-    - Include a nested form writing to an associated model using a custom attribute writer  (form URL, model name e.g. /recipe/new, Item) -- will add to create new list -- nested
-    form for pros/cons
-    - Include nested resource "new" form (URL e.g. recipes/1/ingredients)
+    - add js to add new field on the fly
+    - to start: add button to add new field
 
-+ suggest cons/pros to other users
++ suggest cons/pros to other users (see above)
 
 + add more authorization stuffs to views and such
   Include reasonable validations for simple model objects (list of model objects with validations e.g. User, Recipe, Ingredient, Item)
