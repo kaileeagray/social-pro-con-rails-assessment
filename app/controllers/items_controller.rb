@@ -33,10 +33,10 @@ class ItemsController < ApplicationController
   end
 
   def update
-    debugger
-    @item = Item.update(item_params)
+    @item = Item.find(params[:id])
+    @item.update(item_params)
     if @item.save
-      flash[:info] = "Item udpated."
+      flash[:info] = "Item updated."
       redirect_to list_path(@item.list)
     else
       flash[:danger] = "Item invalid. Try again."

@@ -1,5 +1,5 @@
 <% if current_page?(new_list_path)%>
-<%= form_for :item, url: url do |f| %>
+<%= form_for :item, url: items_path do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
 
   <%= f.hidden_field :pro_con, :value => item.pro_con %>
@@ -19,7 +19,7 @@
 <% end %>
 
 <% else %>
-    <%= form_for :item, url: items_path do |f| %>
+    <%= form_for :item, url: url, method: method do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
 
       <%= f.hidden_field :pro_con, :value => item.pro_con %>

@@ -1,1 +1,5 @@
-<%= render partial: 'form', locals: {item: @item, pro_con: @item.pro_con, pro_con_name: @item.pro_con_name, create_edit: "create"}%>
+<% if @item.pro_con%>
+  <%= render partial: 'form', locals: {method: "post", url: list_pros_path(@item.list, @item), item: @item, pro_con: @item.pro_con, create_edit: "create", pro_con_name: @item.pro_con_name, }%>
+<% else %>
+  <%= render partial: 'form', locals: {method: "post", url: list_cons_path(@item.list, @item), item: @item, pro_con: @item.pro_con, create_edit: "create", pro_con_name: @item.pro_con_name, }%>
+<% end %>

@@ -1,7 +1,7 @@
 <% if current_user == pro.list.user%>
 <tr>
   <td class="col-md-1">
-  <%= link_to list_pro_path(pro), class: "btn btn-xs btn-danger right", title: "delete pro", method: "delete" do %>
+  <%= link_to list_pro_path(pro.list, pro), class: "btn btn-xs btn-danger right", title: "delete pro", method: "delete" do %>
       <i class="glyphicon glyphicon-trash"></i>
   <% end %>
 </td>

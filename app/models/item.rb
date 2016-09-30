@@ -11,4 +11,5 @@ class Item < ApplicationRecord
     self.pro_con ?
     "pro" : "con"
   end
+
 end

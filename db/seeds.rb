@@ -20,25 +20,22 @@ User.create!(name:  "Kailee Gray",
                password_confirmation: password)
 end
 
-users = User.order(:created_at).take(6)
-
-15.times do
-  title = Faker::Beer.name
-  description = Faker::ChuckNorris.fact
-  users.each do |user|
-    user.lists.create!(title: title, description: description)
-  end
-end
-
-20.times do
-  title = Faker::Book.title
-  description = Faker::Hacker.say_something_smart
-  users.each do |user|
-    user.lists.create!(title: title, description: description)
-  end
-end
-
 users = User.all
+
+
+users.each do |user|
+  7.times do
+    title = Faker::Book.title
+    description = Faker::Hacker.say_something_smart
+    user.lists.create!(title: title, description: description)
+  end
+  5.times do
+    title = Faker::Beer.name
+    description = Faker::ChuckNorris.fact
+    user.lists.create!(title: title, description: description)
+  end
+end
+
 lists = List.all
 
 user = User.first
@@ -51,11 +48,12 @@ starred.each { |l| user.star(l) }
 starrers.each { |u| u.star(list)}
 
 lists.each do |l|
-  15.times do
-    l.items.create!(user: l.user, description: Faker::Hacker.say_something_smart)
+  10.times do
+    l.items.create!(user: l.user, description: Faker::Hacker.say_something_smart, weight: rand(0..10), pro_con: true)
+    l.items.create!(user: l.user, description: Faker::Hacker.say_something_smart, weight: rand(0..10), pro_con: false)
   end
   5.times do
-    l.items.create!(user: User.first, description: Faker::ChuckNorris.fact)
-    l.items.create!(user: User.last, description: Faker::Hipster.sentence(3))
+    l.items.create!(user: User.first, description: Faker::ChuckNorris.fact, weight: rand(0..10), pro_con: true)
+    l.items.create!(user: User.last, description: Faker::Hipster.sentence(3), weight: rand(0..10), pro_con: false)
   end
 end
