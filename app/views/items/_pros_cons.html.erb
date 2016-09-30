@@ -1,6 +1,10 @@
 <div class="col-md-6">
   <h1 class="left"><%=pro_con.titlecase%>s <small class="right bottom">&nbsp; total: <%= sum %></small></h1>
-  <%= link_to "Add #{pro_con}", "#{@list.id}/#{pro_con}s/new"%>
+  <%if pro_con == "pro"%>
+    <%= link_to "add pro", new_pro_path, class: "btn btn-small btn-success right"%>
+  <%else%>
+    <%= link_to "add con", new_con_path, class: "btn btn-small btn-warning right"%>
+  <%end%>
   <table class="table table-responsive">
     <%= render partial: 'items/item_user', locals: {user: list.user}%>
     <%= render :partial => "items/item", :collection => owner_items, :as => :item %>
@@ -15,7 +19,7 @@
 
   <table class="table table-responsive">
     <thead>
-      <h2 class="right"><%=pro_con%> Total: <%= sum %></h2>
+      <h2 class="right"><%=pro_con%> total: <%= sum %></h2>
     </thead>
   </table>
 </div>

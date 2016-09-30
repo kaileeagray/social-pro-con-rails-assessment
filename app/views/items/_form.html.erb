@@ -1,7 +1,28 @@
+<% if current_page?(new_list_path)%>
+<%= form_for :item, url: lists_path do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+
+  <%= f.hidden_field :pro_con, :value => item.pro_con %>
+  <%= f.hidden_field :user_id, :value => current_user.id %>
+
+  <%= f.hidden_field :list_id, :value => item.list_id %>
+  <div class="row break">
+    <div class="col-md-10">
+      <%= f.label "Add #{item.pro_con_name}" %>
+      <%= f.text_area :description, class: 'form-control' %>
+    </div>
+    <div class="col-md-2">
+      <%= f.label :weight %>
+      <%= f.number_field(:weight, in: 0..10)%>
+    </div>
+</div>
+<% end %>
+
+<% else %>
     <%= form_for :item, url: items_path do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
 
-      <%= f.hidden_field :pro_con, :value => :pro_con %>
+      <%= f.hidden_field :pro_con, :value => item.pro_con %>
       <%= f.hidden_field :user_id, :value => current_user.id %>
 
       <%= f.hidden_field :list_id, :value => item.list_id %>
@@ -15,4 +36,6 @@
           <%= f.number_field(:weight, in: 0..10)%>
         </div>
     </div>
-  <%end%>
+      <%= f.submit "Create #{item.pro_con_name}"%>
+  <% end %>
+<% end %>

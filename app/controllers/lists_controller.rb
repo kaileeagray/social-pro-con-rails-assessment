@@ -16,13 +16,13 @@ class ListsController < ApplicationController
   end
 
   def create
-    store_location
+
     @list = current_user.lists.build(title: params["list"]["title"], description: params["list"]["description"])
     @list.save
 
     list_params["items_attributes"].values.each do |item|
       @list.items.create!(item) unless item["description"].empty?
-    end
+    end if list_params["items_attributes"]
 
     if @list.errors.empty?
       flash[:success] = "List created"
@@ -36,6 +36,8 @@ class ListsController < ApplicationController
     @list = List.find_by(id: params[:id])
     @pro = @list.items.build(pro_con: true)
     @con = @list.items.build(pro_con: false)
+    @pros = @list.pros
+    @cons = @list.cons
   end
 
   def update
