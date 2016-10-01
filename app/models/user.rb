@@ -80,6 +80,15 @@ class User < ApplicationRecord
     list.items.where(user_id: self.id)
   end
 
+  def self.find_or_create_by_omniauth(auth)
+    oauth_email = auth["info"]["email"] || auth["info"]["nickname"] || auth["info"]["name"]
+    self.where(:email => oauth_email).first_or_create do |user|
+      user.password = SecureRandom.hex
+    end
+  end
+
+
+
   private
 
   def downcase_email
