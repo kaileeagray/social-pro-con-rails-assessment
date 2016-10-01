@@ -1,5 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import 'https://fonts.googleapis.com/css?family=Covered+By+Your+Grace';
+
 /* navbar */
 $gray-medium-light: #eaeaea;
 .left {
@@ -10,7 +12,6 @@ $gray-medium-light: #eaeaea;
   background-color: #253343;
   a {
     color: #f0f6ff;
-    font-family: "Circular", "Avenir Next", sans-serif;
     font-size: 1.3em;
   }
   a:hover {
@@ -73,7 +74,11 @@ $gray-medium-light: #eaeaea;
   background: rgba(245, 245, 245, 0.85);
   margin-bottom: 0;
   h1 {
-    @include shadow(0);
+    font-size: 4em;
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+    padding-top: 11px;
+    font-weight: bold;
   }
   @include shadow(0.25);
 }
@@ -103,20 +108,19 @@ textarea {
 
 /* typography */
 
+
 h1, h2, h3, h4, h5, h6 {
-  line-height: 1;
+  font-size: 1.7em;
 }
 
 h1 {
-  font-size: 3em;
-  letter-spacing: -1px;
+  font-size: 2.5em;
   text-align: center;
   font-weight: bold;
 }
 
 h2 {
   font-size: 1.5em;
-  letter-spacing: -0.5px;
   text-align: center;
   font-weight: normal;
   color: $gray;
@@ -132,17 +136,17 @@ p {
 
 #logo {
   float: left;
-  margin-right: 10px;
-  font-size: 1.7em;
-  color: white;
-  text-transform: uppercase;
-  letter-spacing: -0.5px;
-  padding-top: 11px;
-  font-weight: bold;
-  &:hover {
-    color: white;
-    text-decoration: none;
-  }
+   margin-right: 10px;
+   font-size: 1.7em;
+   color: white;
+   text-transform: uppercase;
+   letter-spacing: -0.5px;
+   padding-top: 11px;
+   font-weight: bold;
+   &:hover {
+     color: white;
+     text-decoration: none;
+   }
 }
 
 /* footer */
@@ -393,4 +397,37 @@ span.picture {
 
 .col-md-7 {
   padding-left: 35px;
+}
+
+
+
+.btn-facebook {
+  color: #FFF;
+  background-color: #3b5998;
+  font-weight: 500;
+  text-align: center;
+  vertical-align: middle;
+  border: 1px solid transparent;
+  transition: background-color .15s ease,border-color .15s ease,color .15s ease;
+  border-width: 0;
+  letter-spacing: 1.2px;
+  min-width: 130px;
+  white-space: normal;
+  margin-bottom: 14px;
+}
+
+.btn {
+  font-weight: 600;
+}
+.group {
+  display: table; width: 100%;
+}
+.item {
+  display: table-cell;
+}
+.text {
+  white-space: nowrap; width: 1%; padding: 0 10px;
+}
+.line {
+  border-bottom: 1px solid #000; position: relative; top: -.5em;
 }

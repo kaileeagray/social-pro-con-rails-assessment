@@ -1,8 +1,16 @@
 <% provide(:title, "Log in") %>
-<h1 class="white_rounded_shadow">Log in</h1>
 
 <div class="row break">
   <div class="col-md-6 col-md-offset-3">
+    <%=link_to "Sign in with Facebook", "/auth/facebook", class:"btn btn-block btn-lg btn-facebook center"%>
+
+    <div class="group">
+      <div class="item line"></div>
+      <div class="item text">or</div>
+      <div class="item line"></div>
+    </div>
+
+    <h2>Sign in with your email</h2>
     <%= form_for(:session, url: login_path) do |f| %>
 
       <%= f.label :email %>
@@ -19,5 +27,3 @@
     <p class="break">New user? <%= link_to "Sign up now!", signup_path %></p>
   </div>
 </div>
-
-<%=link_to "Login via Facebook", "/auth/facebook"%>
