@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+
+  get '/auth/facebook/callback' => 'sessions#create'
+
+
   resources :items
   root   'static_pages#home'
   get    '/help',    to: 'static_pages#help'
