@@ -1,4 +1,4 @@
-<% if logged_in?%>
+<% if user_signed_in?%>
 
 <div class="row white_rounded_shadow">
   <div class="col-md-8">
@@ -27,7 +27,7 @@
       Create pro-con lists. Follow your friends' pro-con lists.
   </h2>
   <div class="center-block break">
-      <%= link_to "Sign up now!", signup_path, class: "center btn btn-lg btn-primary center-block" %>
+      <%= link_to "Sign up now!", new_user_registration_path, class: "center btn btn-lg btn-primary center-block" %>
   </div>
 </div>
 <% end %>

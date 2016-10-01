@@ -8,3 +8,4 @@ urls.map{|url| {"url"=>url, "dns_status"=>200, "title"=>url[7..-5]} }
       </td>
   </tr>
 <%end%>
+rails generate migration add_email_to_users email:string

@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem "figaro"
+gem "devise"
 
 gem 'nokogiri'
 gem 'rails',                   '5.0.0.1'
