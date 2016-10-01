@@ -4,15 +4,17 @@ class List < ApplicationRecord
   has_many :starrers, through: :stars, source: :starrer
   has_many :items, dependent: :destroy
 
-  accepts_nested_attributes_for :items
-
-  # need to create custom writer here!
-
+# items_attributes: [:description, :weight, :pro_con, :user_id]
   default_scope -> { order(created_at: :desc) }
 
-  validates :user_id, presence: true
   validates :title, presence: true, length: { maximum: 80 }
   validates :description, allow_blank: true, length: { maximum: 280 }
+
+  def items_attributes=(items_attributes)
+    items_attributes.each do |i, item_attributes|
+      self.items.build(item_attributes)
+    end
+  end
 
   def items_by_user_id(user_id)
     self.items.where(user_id: user_id)

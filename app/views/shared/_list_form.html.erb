@@ -6,44 +6,23 @@
 
   <%= f.label :description, "List Details" %>
   <%= f.text_area :description%>
-
-  <% if current_page?(new_list_path) %>
-   <div class="row">
-     <div class="col-md-6">
-       <%= f.fields_for :items, @pro do |ff|%>
-         <%= render 'shared/error_messages', object: ff.object %>
-         <div class="row break">
-           <div class="col-md-10">
-             <%= ff.label "Add Pro" %>
-             <%= ff.text_area :description, class: 'form-control' %>
-           </div>
-           <div class="col-md-2">
-             <%= ff.label :weight %>
-             <%= ff.number_field(:weight, in: 0..10)%>
-           </div>
-           <%= ff.hidden_field :pro_con, :value => true %>
-           <%= ff.hidden_field :user_id, :value => current_user.id %>
-         </div>
-       <%end%>
-   </div>
-   <div class="col-md-6">
-       <%= f.fields_for :items, @con do |ff|%>
-         <%= render 'shared/error_messages', object: ff.object %>
-         <div class="row break">
-           <div class="col-md-10">
-             <%= ff.label "Add Con" %>
-             <%= ff.text_area :description, class: 'form-control' %>
-           </div>
-           <div class="col-md-2">
-             <%= ff.label :weight %>
-             <%= ff.number_field(:weight, in: 0..10)%>
-           </div>
-           <%= ff.hidden_field :pro_con, :value => false %>
-           <%= ff.hidden_field :user_id, :value => current_user.id %>
-         </div>
-       <%end%>
-     </div>
-
-   <%end%>
-  <%= f.submit "Create New List", class: "btn btn-primary" %>
+  <div class="row">
+    <%= f.fields_for :items do |ff|%>
+      <div class="col-md-6">
+        <div class="row break">
+          <div class="col-md-10">
+            <%= ff.label "Add #{ff.object.pro_con_name}" %>
+            <%= ff.text_area :description, class: 'form-control' %>
+          </div>
+          <div class="col-md-2">
+            <%= ff.label :weight %>
+            <%= ff.number_field(:weight, in: 0..10)%>
+          </div>
+            <%= ff.hidden_field :pro_con %>
+            <%= ff.hidden_field :user_id, :value => current_user.id %>
+        </div>
+      </div>
+    <%end%>
+  </div>
+  <%= f.submit "Create", class: "btn btn-primary" %>
 <% end %>

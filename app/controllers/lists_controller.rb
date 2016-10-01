@@ -19,15 +19,9 @@ class ListsController < ApplicationController
   end
 
   def create
+    @list = current_user.lists.new(list_params)
 
-    @list = current_user.lists.build(title: params["list"]["title"], description: params["list"]["description"])
-    @list.save
-
-    list_params["items_attributes"].values.each do |item|
-      @list.items.create!(item) unless item["description"].empty?
-    end if list_params["items_attributes"]
-
-    if @list.errors.empty?
+    if @list.save
       flash[:success] = "List created"
       redirect_to list_path(@list)
     else
@@ -36,14 +30,22 @@ class ListsController < ApplicationController
   end
 
   def edit
-    @list = List.find_by(id: params[:id])
-    @pro = @list.items.build(pro_con: true)
-    @con = @list.items.build(pro_con: false)
-    @pros = @list.pros
-    @cons = @list.cons
+    @list = List.find_by(id: params[:ild])
+    if @list.nil?
+      redirect_to lists_path, alert: "List not found."
+    end
   end
 
   def update
+    @list = List.find(params[:id])
+    @list.update(list_params)
+    if @list.save
+      flash[:info] = "List updated."
+      redirect_to list_path(@list)
+    else
+      flash[:danger] = "invalid. Try again."
+      render 'edit'
+    end
   end
 
   def destroy
@@ -65,7 +67,7 @@ class ListsController < ApplicationController
 
   private
     def list_params
-      params.require(:list).permit(:title, :description, items_attributes: [:description, :weight, :pro_con, :user_id])
+      params.require(:list).permit(:title, :description, items_attributes: [:user_id, :description, :weight, :pro_con])
     end
 
     def correct_user

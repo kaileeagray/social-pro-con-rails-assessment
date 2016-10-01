@@ -1,9 +1,11 @@
 ### To Dos:
-+ create, edit, delete pros/cons
-    - add js to add new field on the fly
-    - to start: add button to add new field
 
-+ suggest cons/pros to other users (see above)
++ change pro_con name to item_type "pro", "con"
+  ?
+  
+x + create, edit, delete pros/cons
+
+x + suggest cons/pros to other users (see above)
 
 + add more authorization stuffs to views and such
   Include reasonable validations for simple model objects (list of model objects with validations e.g. User, Recipe, Ingredient, Item)

@@ -40,7 +40,7 @@ class ItemsController < ApplicationController
       redirect_to list_path(@item.list)
     else
       flash[:danger] = "Item invalid. Try again."
-      render 'new'
+      render 'edit'
     end
   end
 

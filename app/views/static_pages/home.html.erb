@@ -1,32 +1,25 @@
 <% if logged_in?%>
-  <div class="row">
-    <aside class="col-md-5">
-      <div class="row list-header">
-        <div class="col-md-6">
-          <section class="user_info">
-            <%= render :partial => 'shared/user_info', :locals => {user: current_user}%>
-            <%= link_to "view my profile", user_path(current_user) %>
-          </section>
-        </div>
-        <div class="col-md-3">
-          <section class="stats">
-            <%= render 'shared/user_list_count' %>
-          </section>
-        </div>
-        <div class="col-md-3">
-          <section class="stats">
-            <%= render 'users/starred' %>
-          </section>
-        </div>
-      </div>
-      <section class="list_form">
-        <%= render 'shared/list_form'%>
-      </section>
-    </aside>
-    <div class="col-md-7">
-      <%= render 'shared/feed' %>
-    </div>
+
+<div class="row white_rounded_shadow">
+  <div class="col-md-8">
+    <%= link_to gravatar_for(current_user, size: 80), current_user %>
+    <h1 class="left"><%= current_user.name %></h1>
+    <%= link_to "view my profile", user_path(current_user) %>
   </div>
+  <div class="col-md-1">
+    <section class="stats">
+      <%= render 'shared/user_list_count' %>
+    </section>
+  </div>
+  <div class="col-md-1">
+    <section class="stats">
+      <%= render 'users/starred' %>
+    </section>
+  </div>
+</div>
+<div class="container">
+  <%= render 'shared/feed' %>
+</div>
 <% else %>
 <div class="jumbotron">
   <h1>Social Pro-Con Web App</h1>
