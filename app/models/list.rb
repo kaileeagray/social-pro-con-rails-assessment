@@ -12,8 +12,7 @@ class List < ApplicationRecord
 
   def items_attributes=(items_attributes)
     items_attributes.each do |i, item_attributes|
-      debugger
-      if self.items.find(item_attributes[:id])
+      if item_attributes[:id] && self.items.find(item_attributes[:id])
         self.items.find(item_attributes[:id]).update(item_attributes)
       else
         self.items.build(item_attributes)

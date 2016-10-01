@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+  before_action :correct_user,   only: [:destroy, :edit, :update]
+  before_action :logged_in_user, only: [:create, :destroy, :edit, :update]
 
   def new
     @item = Item.new
@@ -63,6 +65,14 @@ class ItemsController < ApplicationController
 
     def item_params
       params.require(:item).permit(:description, :weight, :pro_con, :id, :list_id)
+    end
+
+    def correct_user
+      @item = Item.find_by(id: params[:id])
+      unless !!current_user.items.includes(@item) || @item.list.user == current_user
+        flash[:danger] = "You do not have proper permissions!"
+        redirect_to root_url
+      end
     end
 
 

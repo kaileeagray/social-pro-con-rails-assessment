@@ -1,6 +1,6 @@
 class ListsController < ApplicationController
   before_action :logged_in_user, only: [:create, :destroy, :update, :index]
-  before_action :correct_user,   only: [:destroy, :update]
+  before_action :correct_user,   only: [:destroy, :edit, :update]
 
   def index
     @feed_items = List.all.paginate(page: params[:page], :per_page => 10)
@@ -72,6 +72,9 @@ class ListsController < ApplicationController
 
     def correct_user
       @list = current_user.lists.find_by(id: params[:id])
-      redirect_to root_url if @list.nil?
+      if @list.nil?
+        flash[:danger] = "You do not have proper permissions!"
+        redirect_to root_url
+      end
     end
 end
