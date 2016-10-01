@@ -11,7 +11,7 @@
       <div class="col-md-6">
         <div class="row break">
           <div class="col-md-10">
-            <%= ff.label "Add #{ff.object.pro_con_name}" %>
+            <%= ff.label "#{ff.object.pro_con_name}" %>
             <%= ff.text_area :description, class: 'form-control' %>
           </div>
           <div class="col-md-2">
@@ -24,5 +24,5 @@
       </div>
     <%end%>
   </div>
-  <%= f.submit "Create", class: "btn btn-primary" %>
+  <%= f.submit "Save", class: "btn btn-primary" %>
 <% end %>

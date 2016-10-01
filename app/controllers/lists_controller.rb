@@ -30,7 +30,7 @@ class ListsController < ApplicationController
   end
 
   def edit
-    @list = List.find_by(id: params[:ild])
+    @list = List.find_by(id: params[:id])
     if @list.nil?
       redirect_to lists_path, alert: "List not found."
     end
@@ -67,7 +67,7 @@ class ListsController < ApplicationController
 
   private
     def list_params
-      params.require(:list).permit(:title, :description, items_attributes: [:user_id, :description, :weight, :pro_con])
+      params.require(:list).permit(:title, :description, items_attributes: [:user_id, :description, :weight, :pro_con, :id])
     end
 
     def correct_user
