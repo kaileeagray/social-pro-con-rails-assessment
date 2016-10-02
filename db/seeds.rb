@@ -4,13 +4,8 @@ User.create!(name:  "Example User",
              password_confirmation: "foobar",
              admin: true)
 
-User.create!(name:  "Kailee Gray",
-            email: "kaileeagray@gmail.com",
-            password:              "foobar",
-            password_confirmation: "foobar",
-            admin: true)
 
-5.times do |n|
+2.times do |n|
   name = Faker::Book.author
   email = "example-#{n+1}@railstutorial.org"
   password = "password"
@@ -57,3 +52,10 @@ lists.each do |l|
     l.items.create!(user: User.last, description: Faker::Hipster.sentence(3), weight: rand(0..10), pro_con: false)
   end
 end
+
+
+User.create!(name:  "The Onion",
+            email: "onion@onion.co",
+            password:              "theonion",
+            password_confirmation: "theonion",
+            image: "http://assets3.onionstatic.com/onionstatic/onion/static/images/onion_logo.png")

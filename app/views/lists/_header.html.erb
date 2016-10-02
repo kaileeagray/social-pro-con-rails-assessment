@@ -26,4 +26,7 @@
     </div>
   </div>
   <h2 class="left"><%=list.description%></h2>
+  <% if list.source%>
+    <%= link_to list.source %>
+  <% end %>
 </div>

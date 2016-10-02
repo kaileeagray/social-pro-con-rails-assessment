@@ -1,5 +1,7 @@
 ### To Dos:
 
++ what's up with the starring your own?
+
 + change pro_con name to item_type "pro", "con"
   ?
 
@@ -10,7 +12,7 @@ x + suggest cons/pros to other users (see above)
 + add more authorization stuffs to views and such (ish?)
   Include reasonable validations for simple model objects (list of model objects with validations e.g. User, Recipe, Ingredient, Item)
 
-+ add omni auth via facebook?
+x + add omni auth via facebook?
 
 + scrape onion
 
