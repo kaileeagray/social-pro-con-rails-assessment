@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
 
-gem "devise"
+gem 'simple_form'
 
+gem "devise"
 gem 'nokogiri'
 gem 'rails',                   '5.0.0.1'
 gem 'bcrypt',                  '3.1.11'
