@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161001231702) do
+ActiveRecord::Schema.define(version: 20161004194458) do
 
   create_table "items", force: :cascade do |t|
     t.integer  "list_id"
@@ -38,8 +38,9 @@ ActiveRecord::Schema.define(version: 20161001231702) do
   create_table "stars", force: :cascade do |t|
     t.integer  "list_id"
     t.integer  "starrer_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "admin",      default: false
     t.index ["list_id", "starrer_id"], name: "index_stars_on_list_id_and_starrer_id", unique: true
     t.index ["list_id"], name: "index_stars_on_list_id"
     t.index ["starrer_id"], name: "index_stars_on_starrer_id"

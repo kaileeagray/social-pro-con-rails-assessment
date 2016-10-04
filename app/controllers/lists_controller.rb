@@ -1,6 +1,6 @@
 class ListsController < ApplicationController
-  before_action :authenticate_user!, only: [:create, :destroy, :update, :index]
-  before_action :correct_user,   only: [:destroy, :edit, :update]
+  before_action :authenticate_user!
+  before_action :correct_user,   only: [:destroy, :edit, :update, :edit_access, :update_access]
 
   def index
     @feed_items = List.all.paginate(page: params[:page], :per_page => 10)
@@ -27,6 +27,22 @@ class ListsController < ApplicationController
     else
       render 'lists/new'
     end
+  end
+
+  def edit_access
+    @list = List.find_by(id: params[:id])
+    @starrers = @list.starrers
+    @stars = @list.stars
+    if @list.nil?
+      redirect_to lists_path, alert: "List not found."
+    end
+    render 'grant_access'
+  end
+
+  def update_access
+    @list = List.find(params[:id])
+    @list.update_admins(list_params[:admin_ids])
+    redirect_to list_path(@list)
   end
 
   def edit
@@ -67,7 +83,7 @@ class ListsController < ApplicationController
 
   private
     def list_params
-      params.require(:list).permit(:title, :description, items_attributes: [:user_id, :description, :weight, :pro_con, :id])
+      params.require(:list).permit(:title, :description, items_attributes: [:user_id, :description, :weight, :pro_con, :id], 'admin_ids' => [])
     end
 
     def correct_user

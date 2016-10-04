@@ -20,6 +20,13 @@ class List < ApplicationRecord
     end
   end
 
+  def update_admins(user_ids)
+    user_ids.each do |user_id|
+      star = Star.find_by(list_id: self.id, starrer_id: user_id.to_i)
+      star.update(admin: true)
+    end
+  end
+
   def items_by_user_id(user_id)
     self.items.where(user_id: user_id)
   end
@@ -67,6 +74,10 @@ class List < ApplicationRecord
 
   def pro_con_sum
     pro_sum - con_sum
+  end
+
+  def admins
+    stars.where(admin: true)
   end
 
 end

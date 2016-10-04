@@ -17,10 +17,12 @@ Rails.application.routes.draw do
   end
 
   resources :lists do
-    resources :cons, controller: :items, :defaults => { :item_type => false }
-    resources :pros, controller: :items, :defaults => { :item_type => true }
+    resources :cons, controller: :items, :defaults => { :pro_con => false }
+    resources :pros, controller: :items, :defaults => { :pro_con => true }
     member do
       get :starrers
+      get  'permissions', :action => 'edit_access'
+      post 'permissions', :action => 'update_access'
     end
   end
 

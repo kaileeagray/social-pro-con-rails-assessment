@@ -1,0 +1,30 @@
+
+<%= form_for @list, :url => { :action => "update_access" }, :method => :post do |f| %>
+    <table class="table table-responsive">
+      <tr>
+        <thead>
+        <th>
+          Starrer
+        </th>
+        <th>
+          Admin?
+        </th>
+          </thead>
+        </tr>
+
+      <% @stars.all.each do |star| %>
+      <tr>
+        <td>
+          <%= star.starrer.name %>
+        </td>
+        <td>
+          <%= check_box_tag "list[admin_ids][]", star.starrer.id, star.admin%>
+        </td>
+    </tr>
+      <% end %>
+    </table>
+
+  <div class="actions">
+    <%= f.submit "Update List Admins" %>
+  </div>
+<% end %>
