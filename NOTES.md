@@ -2,10 +2,10 @@
 + Everytime I think I'm getting this weird rare error, GOOGLE TO THE RESCUE: https://github.com/ffi/ffi/issues/447.
 https://github.com/rowland/activerecord-fb-adapter/issues/61
 
-NOPE.
+http://stackoverflow.com/questions/10218587/twitter-bootstrap-drop-down-suddenly-not-working
 
- This wasn't my problem but it hinted at the Gemfile.
-  So, I bundle update and BOOM. Working. Le sigh.
+
+NOPE.
 
 + background image deploy issue: https://devcenter.heroku.com/articles/rails-asset-pipeline
 + cool background images: http://subtlepatterns.com/

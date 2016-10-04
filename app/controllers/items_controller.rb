@@ -59,10 +59,6 @@ class ItemsController < ApplicationController
 
   private
 
-    def load_list
-      @list = List.find(params[:list_id])
-    end
-
     def item_params
       params.require(:item).permit(:description, :weight, :pro_con, :id, :list_id)
     end
