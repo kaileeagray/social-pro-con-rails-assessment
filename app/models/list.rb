@@ -4,7 +4,6 @@ class List < ApplicationRecord
   has_many :starrers, through: :stars, source: :starrer
   has_many :items, dependent: :destroy
 
-# items_attributes: [:description, :weight, :pro_con, :user_id]
   default_scope -> { order(created_at: :desc) }
 
   validates :title, presence: true, length: { maximum: 80 }

@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'simple_form'
 gem 'bootstrap-sass-extras'
-
+gem 'puma'
 
 gem "devise"
 gem 'nokogiri'
