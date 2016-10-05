@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get    '/about',   to: 'static_pages#about'
   get    '/contact', to: 'static_pages#contact'
 
+  
   resources :users do
     member do
       get :starred, :feed
