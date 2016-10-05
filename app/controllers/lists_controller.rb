@@ -87,8 +87,8 @@ class ListsController < ApplicationController
     end
 
     def correct_user
-      @list = current_user.lists.find_by(id: params[:id])
-      if @list.nil?
+      list = List.find(params[:id])
+      unless current_user.lists.find_by(id: params[:id]) || list.admin?(current_user)
         flash[:danger] = "You do not have proper permissions!"
         redirect_to root_url
       end

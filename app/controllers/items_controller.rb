@@ -65,7 +65,7 @@ class ItemsController < ApplicationController
 
     def correct_user
       @item = Item.find_by(id: params[:id])
-      unless !!current_user.items.includes(@item) || @item.list.user == current_user
+      unless !!current_user.items.includes(@item) || @item.list.user == current_user || @item.list.admin?(current_user)
         flash[:danger] = "You do not have proper permissions!"
         redirect_to root_url
       end

@@ -1,4 +1,4 @@
-<% if current_user == con.list.user%>
+<% if current_user == con.list.user || con.list.admin?(current_user)%>
 <tr>
   <td class="col-md-1">
   <%= link_to list_con_path(con.list, con), class: "btn btn-xs btn-danger right", title: "delete con", method: "delete" do %>
