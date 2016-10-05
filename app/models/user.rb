@@ -15,10 +15,6 @@ class User < ApplicationRecord
   before_save :downcase_email
 
 
-  def feed
-    List.where("user_id = ?", id)
-  end
-
   def star(list)
     stars.create(list: list)
   end
