@@ -67,7 +67,7 @@ $gray-medium-light: #eaeaea;
 }
 
 /* universal */
-.container .jumbotron {
+.container-fluid .jumbotron {
   align-self: center;
   margin-top: 20px;
   background: rgb(245, 245, 245); /* This is for ie8 and below */
@@ -90,6 +90,8 @@ $gray-medium-light: #eaeaea;
 
 body {
   font-family: "Circular", "Avenir Next", sans-serif;
+  padding-left: 30px;
+  padding-right: 30px;
   padding-top: 50px;
   padding-bottom: 70px;
   background-image: image-url("notebook.png");

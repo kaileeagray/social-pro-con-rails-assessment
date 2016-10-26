@@ -2,6 +2,8 @@
 <html>
   <head>
     <title><%= full_title(yield(:title)) %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <%= csrf_meta_tags %>
     <%= render 'layouts/rails_default' %>
     <%= render 'layouts/shim' %>
@@ -11,7 +13,7 @@
 
   <body>
     <%= render 'layouts/header' %>
-    <div class="container">
+    <div class="container-fluid">
       <div class="row">
       <%= render 'layouts/messages' %>
 
