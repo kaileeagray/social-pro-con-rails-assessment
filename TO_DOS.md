@@ -1,4 +1,6 @@
 ### To Dos:
++ fix dropdowns in mobile
+
 + finish specs first
 
 + (later) in order to allow granting edit permissions to any user we'll need a join table between

@@ -4,6 +4,7 @@ gem 'simple_form'
 gem 'bootstrap-sass-extras'
 gem 'puma'
 
+gem 'jquery-turbolinks'
 gem 'active_model_serializers'
 
 gem "devise"
