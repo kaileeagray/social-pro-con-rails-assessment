@@ -1,6 +1,6 @@
 <li id="list-<%= list.id %>">
   <%unless current_page?(user_path(list.user))%>
-  <%= link_to gravatar_for(list.user, size: 50), list.user %>
+  <%= link_to gravatar_for(list.user, size: 60), list.user %>
   <span class="user"><%= link_to list.user.name, list.user %></span>
   <%end%>
   <span class="content"><%= link_to "#{list.title} (#{list.starrers.count})", list_path(list) %></span>
