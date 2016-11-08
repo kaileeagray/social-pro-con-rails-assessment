@@ -76,7 +76,7 @@ class List < ApplicationRecord
   end
 
   def admins
-    ids = User.where(admin: true).pluck(:id)
+    ids = stars.where(admin: true).pluck(:starrer_id)
     User.where(id: ids)
   end
 
