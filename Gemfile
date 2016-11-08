@@ -4,6 +4,8 @@ gem 'simple_form'
 gem 'bootstrap-sass-extras'
 gem 'puma'
 
+gem 'active_model_serializers'
+
 gem "devise"
 gem 'nokogiri'
 gem 'rails',                   '5.0.0.1'

@@ -1,4 +1,9 @@
 ### To Dos:
++ finish specs first
+
++ (later) in order to allow granting edit permissions to any user we'll need a join table between
+  list and user -- permssions table? and remove the admin column from starrer so that the user doesn't have to start the list
+
 
 + what's up with the starring your own?
 
