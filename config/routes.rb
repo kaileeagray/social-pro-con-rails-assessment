@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
+  get '/users/sign_out' => 'devise/sessions#destroy'
 
   resources :items
 
@@ -10,7 +11,7 @@ Rails.application.routes.draw do
   get    '/about',   to: 'static_pages#about'
   get    '/contact', to: 'static_pages#contact'
 
-  
+
   resources :users do
     member do
       get :starred, :feed
