@@ -7,7 +7,7 @@ gem 'puma'
 gem 'jquery-turbolinks'
 gem 'active_model_serializers'
 
-gem "devise"
+gem 'devise'
 gem 'nokogiri'
 gem 'rails',                   '5.0.0.1'
 gem 'bcrypt',                  '3.1.11'
