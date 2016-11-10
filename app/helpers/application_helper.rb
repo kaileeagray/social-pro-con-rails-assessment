@@ -24,15 +24,21 @@ module ApplicationHelper
       end
     end
 
-    def flash_messages(opts = {})
-      flash.each do |msg_type, message|
-        concat(content_tag(:div, message, class: "alert #{bootstrap_class_for(msg_type)} fade in", role: "alert") do
-                concat content_tag(:button, 'x', class: "close", data: { dismiss: 'alert' })
-                concat message
-              end)
-      end
-      nil
+  def flash_messages(opts = {})
+    flash.each do |msg_type, message|
+      concat(content_tag(:div, message, class: "alert #{bootstrap_class_for(msg_type)} fade in", role: "alert") do
+              concat content_tag(:button, 'x', class: "close", data: { dismiss: 'alert' })
+              concat message
+            end)
     end
+    nil
+  end
+
+  def json_for(target, options = {})
+    options[:scope] ||= self
+    options[:url_options] ||= url_options
+    target.active_model_serializer.new(target, options).to_json
+  end
 
 
 end

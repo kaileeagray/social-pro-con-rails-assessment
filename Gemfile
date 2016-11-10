@@ -5,7 +5,7 @@ gem 'bootstrap-sass-extras'
 gem 'puma'
 
 gem 'jquery-turbolinks'
-gem 'active_model_serializers'
+gem 'active_model_serializers', git: 'git@github.com:rails-api/active_model_serializers.git', branch: '0-8-stable'
 
 gem 'devise'
 gem 'nokogiri'
