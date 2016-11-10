@@ -4,6 +4,10 @@ class ListsController < ApplicationController
 
   def index
     @feed_items = List.all.paginate(page: params[:page], :per_page => 10)
+    respond_to do |format|
+      format.html {render :index}
+      format.json {render json: List.all}
+    end
   end
 
   def show
