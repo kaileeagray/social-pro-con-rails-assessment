@@ -8,6 +8,14 @@ class ItemsController < ApplicationController
     @item.pro_con = params[:item_type]
   end
 
+  def show
+    @item = Item.find_by(id: params[:id])
+    respond_to do |format|
+      format.html {render :show}
+      format.json {render json: @item}
+    end
+  end
+
   def create
     @item = Item.new(item_params)
     @item.user = current_user

@@ -10,6 +10,10 @@ class ListsController < ApplicationController
     @list = List.find_by(id: params[:id])
     @owner_items_hash = @list.owner_items_hash
     @contributor_items_hash = @list.contributor_items_hash
+    respond_to do |format|
+      format.html {render :show}
+      format.json {render json: @list}
+    end
   end
 
   def new

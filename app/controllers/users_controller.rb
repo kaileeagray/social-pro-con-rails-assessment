@@ -10,6 +10,10 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @lists = @user.lists.paginate(page: params[:page], :per_page => 10)
+    respond_to do |f|
+      f.html { render :show }
+      f.json { render json: @user }
+    end
   end
 
   def starred

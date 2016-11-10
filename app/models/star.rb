@@ -1,4 +1,6 @@
 class Star < ApplicationRecord
+  include ActiveModel::Serialization
+
   belongs_to :list
   belongs_to :starrer, class_name: "User"
 

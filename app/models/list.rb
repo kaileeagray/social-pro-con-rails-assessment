@@ -1,4 +1,6 @@
 class List < ApplicationRecord
+  include ActiveModel::Serialization
+
   belongs_to :user
   has_many :stars, dependent: :destroy
   has_many :starrers, through: :stars, source: :starrer

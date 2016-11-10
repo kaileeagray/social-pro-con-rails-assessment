@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  include ActiveModel::Serialization
+
   devise :database_authenticatable, :registerable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook]
 

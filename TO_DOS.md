@@ -21,7 +21,7 @@ x + suggest cons/pros to other users (see above)
 
 x + add omni auth via facebook?
 
-+ scrape onion
+x + scrape onion
 
 x 1. Users must create an account
 x 2. Users can sign in.
