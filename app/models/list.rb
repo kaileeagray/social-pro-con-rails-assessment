@@ -11,6 +11,14 @@ class List < ApplicationRecord
   validates :title, presence: true, length: { maximum: 80 }
   validates :description, allow_blank: true, length: { maximum: 280 }
 
+  def self.get_next_list(id)
+    id++
+    while !List.exists?(id)
+      id++
+    end
+    id
+  end
+
   def items_attributes=(items_attributes)
     items_attributes.each do |i, item_attributes|
       if item_attributes[:id] && self.items.find(item_attributes[:id])

@@ -1,4 +1,6 @@
 ### To Dos:
++ render pro/cons with ajax on list view page
+
 + fix dropdowns in mobile
 
 + finish specs first
