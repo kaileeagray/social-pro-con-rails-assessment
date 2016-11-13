@@ -12,7 +12,6 @@ class List < ApplicationRecord
   validates :description, allow_blank: true, length: { maximum: 280 }
 
   def self.get_next_list(id)
-    binding.pry
     id += 1
     until List.exists?(id)
       id += 1
