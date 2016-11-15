@@ -57,7 +57,7 @@ $gray-medium-light: #eaeaea;
 @mixin white_rounded_back {
   background-color: #f5f5f5;
   padding: 20px;
-  border-radius: 6px;
+  border-radius: 1px;
 }
 
 @mixin shadow($size) {
@@ -73,6 +73,8 @@ $gray-medium-light: #eaeaea;
   background: rgb(245, 245, 245); /* This is for ie8 and below */
   background: rgba(245, 245, 245, 0.85);
   margin-bottom: 0;
+  border-radius: 1px;
+
   h1 {
     font-size: 4em;
     text-transform: uppercase;
@@ -80,7 +82,7 @@ $gray-medium-light: #eaeaea;
     padding-top: 11px;
     font-weight: bold;
   }
-  @include shadow(0.25);
+  // @include shadow(0.25);
 }
 
 .break {
@@ -94,8 +96,9 @@ body {
   padding-right: 30px;
   padding-top: 50px;
   padding-bottom: 70px;
-  background-image: image-url("notebook.png");
-  background-repeat: repeat;
+  background-color: rgb(235, 233, 230);
+  // background-image: image-url("notebook.png");
+  // background-repeat: repeat;
 }
 
 
@@ -352,7 +355,7 @@ span.picture {
 
 .list-header {
   @include white_rounded_back;
-  @include shadow(0.25);
+  // @include shadow(0.25);
   padding: 10px;
   margin-top: 15px;
 
@@ -366,7 +369,7 @@ span.picture {
 
 .white_rounded_shadow {
   @include white_rounded_back;
-  @include shadow(0.25);
+  // @include shadow(0.25);
   margin-bottom: 30px;
 }
 
@@ -404,6 +407,8 @@ span.picture {
 
 .btn {
   font-weight: 600;
+  border-radius: 1px;
+
 }
 .group {
   display: table; width: 100%;
@@ -438,14 +443,30 @@ span.picture {
   }
 }
 
-.alert {
-  margin: -20px 0 20px 0;
-  font-weight: bold;
-  font-size: 1.1em;
+.field {
+  input {
+    border-radius: 1px;
+  }
 }
 
-.alert-devise {
-  margin: 0 0 10px 0 !important;
+.alert {
   font-weight: bold;
   font-size: 1.1em;
+  border-radius: 1px;
+}
+
+.form-control {
+  border-radius: 1px;
+}
+
+
+.pagination > li:last-child > a, .pagination > li:last-child > span {
+    border-bottom-right-radius: 1px;
+    border-top-right-radius: 1px;
+}
+
+.pagination > li:first-child > a, .pagination > li:first-child > span {
+    margin-left: 0;
+    border-bottom-left-radius: 1px;
+    border-top-left-radius: 1px;
 }
