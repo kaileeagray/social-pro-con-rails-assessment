@@ -12,6 +12,8 @@ class ListsController < ApplicationController
 
   def show
     @list = List.find_by(id: params[:id])
+    @pro = @list.items.create(pro_con: true)
+    @con = @list.items.create(pro_con: false)
     @owner_items_hash = @list.owner_items_hash
     @contributor_items_hash = @list.contributor_items_hash
     respond_to do |format|

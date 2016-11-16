@@ -17,16 +17,19 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.new(item_params)
+    @list = List.find(params[:list_id])
+    @item = @list.items.build(item_params)
     @item.user = current_user
     if @item.save
-      flash[:info] = "Item added to list."
-      redirect_to list_path(@item.list)
+      respond_to do |f|
+        f.html {redirect_to list_path(@list)}
+        f.json {render :json => @list}
+      end
     else
-      flash[:danger] = "Item invalid. Try again."
-      render 'new'
+      render "lists/show"
     end
   end
+
 
   def edit
     if params[:list_id]

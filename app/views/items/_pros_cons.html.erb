@@ -2,9 +2,15 @@
   <h1 class="left"><%=pro_con.titlecase%>s <small class="right bottom">&nbsp; total: <%= sum %></small></h1>
   <div class="button-group">
   <%if pro_con == "pro"%>
-    <%= link_to "add pro", new_list_pro_path(list), class: "btn btn-small btn-success right"%>
+    <%= form_for(list_pros_path(@list, @pro)) do |f| %>
+      <%= f.text_field :description, :class => "new-item", :placeholder => ("Add a new pro...") %>
+      <%= f.submit :style => "display: none" %>
+    <% end %>
   <%else%>
-    <%= link_to "add con", new_list_con_path(list), class: "btn btn-small btn-warning right"%>
+    <%= form_for(list_cons_path(@list, @con)) do |f| %>
+      <%= f.text_field :description, :class => "new-item", :placeholder => ("Add a new con...") %>
+      <%= f.submit :style => "display: none" %>
+    <% end %>
   <%end%>
   </div>
   <br>

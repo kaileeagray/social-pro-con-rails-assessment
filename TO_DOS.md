@@ -1,4 +1,6 @@
 ### To Dos:
++ render edit in line
++ render new list item in home page view
 + render pro/cons with ajax on list view page
 
 + fix dropdowns in mobile
