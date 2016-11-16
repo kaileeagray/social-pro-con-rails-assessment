@@ -95,7 +95,6 @@ body {
   padding-left: 30px;
   padding-right: 30px;
   padding-top: 50px;
-  padding-bottom: 70px;
   background-color: rgb(235, 233, 230);
   // background-image: image-url("notebook.png");
   // background-repeat: repeat;
@@ -158,10 +157,9 @@ p {
 
 footer {
   clear: both;
-  margin-top: 45px;
   color: $gray-light;
-  background: rgb(245, 245, 245); /* This is for ie8 and below */
-  background: rgba(245, 245, 245, 0.85);
+  margin-top: 50px;
+  bottom: 0;
   a {
     color: $gray;
     &:hover {

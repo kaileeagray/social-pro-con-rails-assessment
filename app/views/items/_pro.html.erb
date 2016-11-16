@@ -1,7 +1,7 @@
 <% if current_user == pro.list.user || pro.list.admin?(current_user)%>
 <tr>
   <td class="col-md-1">
-  <%= link_to list_pro_path(pro.list, pro), class: "btn btn-xs btn-danger right", title: "delete pro", method: "delete" do %>
+    <%= button_to list_pro_path(pro.list, pro), :method => "delete", :class => "btn btn-xs btn-danger right" do %>
       <i class="glyphicon glyphicon-trash"></i>
   <% end %>
 </td>
