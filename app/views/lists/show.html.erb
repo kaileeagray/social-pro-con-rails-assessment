@@ -1,12 +1,7 @@
 <% provide(:title, @list.title) %>
-
-<a class=" btn btn-small btn-secondary left" href="#" id="js-previous" data-id="<%=@list.id%>">Previous List</a>
-<a class="next btn btn-small btn-secondary right" href="#" id="js-next" data-id="<%=@list.id%>">Next List</a> <br>
 <%= render partial: 'lists/header', locals: {list: @list}%>
-<div class="container">
-  <div class="row">
-    <%= render partial: 'items/pros_cons', locals: {pro_con: "pro", list: @list, owner_items: @owner_items_hash["pros"], contributor_items_hash: @contributor_items_hash["pros"], sum: @list.pro_sum}%>
-    <%= render partial: 'items/pros_cons', locals: {pro_con: "con", list: @list, owner_items: @owner_items_hash["cons"], contributor_items_hash: @contributor_items_hash["cons"], sum: @list.con_sum}%>
-    <%= %>
-  </div>
+<div class="row items">
+  <%= render partial: 'items/pros_cons', locals: {pro_con: "pro", list: @list, owner_items: @owner_items_hash["pros"], contributor_items_hash: @contributor_items_hash["pros"], sum: @list.pro_sum}%>
+  <%= render partial: 'items/pros_cons', locals: {pro_con: "con", list: @list, owner_items: @owner_items_hash["cons"], contributor_items_hash: @contributor_items_hash["cons"], sum: @list.con_sum}%>
+  <%= %>
 </div>

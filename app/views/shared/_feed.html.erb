@@ -1,6 +1,10 @@
 <% if @feed_items.any? %>
   <ol class="lists">
-    <%= render @feed_items %>
+    <div class="page">
+      <%= render @feed_items %>
+    </div>
   </ol>
-  <%= will_paginate @feed_items, class:"text-center" %>
+  <%= paginate @feed_items %>
 <% end %>
+
+<%= link_to 'New List', new_list_path %>

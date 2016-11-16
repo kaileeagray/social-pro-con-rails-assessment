@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'simple_form'
 gem 'bootstrap-sass-extras'
 gem 'puma'
+gem 'kaminari'
 
 gem 'pry'
 gem 'jquery-turbolinks'

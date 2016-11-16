@@ -3,7 +3,7 @@ class ListsController < ApplicationController
   before_action :correct_user,   only: [:destroy, :edit, :update, :edit_access, :update_access]
 
   def index
-    @feed_items = List.all.paginate(page: params[:page], :per_page => 10)
+    @feed_items = List.all.page(page: params[:page], :per_page => 10)
     respond_to do |format|
       format.html {render :index}
       format.json {render json: List.all}
