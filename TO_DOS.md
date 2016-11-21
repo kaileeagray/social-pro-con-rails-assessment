@@ -1,6 +1,10 @@
 ### To Dos:
++ goal: starrers show page render via json
+
 + render edit in line
 + render new list item in home page view
+  - use modal to create from without rendering new page
+
 + render pro/cons with ajax on list view page
 
 + fix dropdowns in mobile

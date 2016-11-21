@@ -5,11 +5,12 @@ Specs:
 - [x] Include a show resource rendered using jQuery and an Active Model Serialization JSON backend.
   list show page and user show page
 - [x] Include an index resource rendered using jQuery and an Active Model Serialization JSON backend.
-  lists show page
+      lists show page
 - [ ] Include at least one has_many relationship in information rendered via JSON and appended to the DOM.
-
+      starrers show page
 - [ ] Include at least one link that loads or updates a resource without reloading the page.
-I will create and render pro/con w/out reloading
+    I will create and render pro/con w/out reloading
+
 - [ ] Translate JSON responses into js model objects.
 - [ ] At least one of the js model objects must have at least one method added by your code to the prototype.
 

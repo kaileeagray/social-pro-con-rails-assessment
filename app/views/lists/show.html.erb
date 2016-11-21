@@ -1,7 +1,8 @@
 <% provide(:title, @list.title) %>
 <%= render partial: 'lists/header', locals: {list: @list}%>
-<div class="row items">
-  <%= render partial: 'items/pros_cons', locals: {pro_con: "pro", list: @list, owner_items: @owner_items_hash["pros"], contributor_items_hash: @contributor_items_hash["pros"], sum: @list.pro_sum}%>
-  <%= render partial: 'items/pros_cons', locals: {pro_con: "con", list: @list, owner_items: @owner_items_hash["cons"], contributor_items_hash: @contributor_items_hash["cons"], sum: @list.con_sum}%>
-  <%= %>
+<div class="container">
+  <div class="row items">
+    <%= render partial: 'items/pros_cons', locals: {pro_con: "pro", list: @list, owner_items: @owner_items_hash["pros"], contributor_items_hash: @contributor_items_hash["pros"], sum: @list.pro_sum}%>
+    <%= render partial: 'items/pros_cons', locals: {pro_con: "con", list: @list, owner_items: @owner_items_hash["cons"], contributor_items_hash: @contributor_items_hash["cons"], sum: @list.con_sum}%>
+  </div>
 </div>
