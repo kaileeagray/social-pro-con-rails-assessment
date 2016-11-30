@@ -5,7 +5,7 @@
       <div class="row">
         <div class="col-md-9">
           <h1 class="left"><%=list.title%> </h1>
-          <a href="<%=list.id%>/starrers"><h4 class="left">starred <%=pluralize(list.starrers.count, "time")%></h4></a>
+          <a href="<%=list.id%>/starrers" id="starrers"><h4 class="left">starred <%=pluralize(list.starrers.count, "time")%></h4></a>
         </div>
         <% if user_signed_in?%>
           <div class="col-md-3 break right">

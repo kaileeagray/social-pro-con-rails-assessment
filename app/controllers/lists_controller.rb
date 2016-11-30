@@ -87,8 +87,11 @@ class ListsController < ApplicationController
   def starrers
     @title = "Starrers"
     @list = List.find(params[:id])
-    @users = @list.starrers.paginate(page: params[:page])
-    render 'shared/show_starrers'
+    @users = @list.starrers
+    respond_to do |format|
+      format.html {render 'shared/show_starrers'}
+      format.json {render json: @users}
+    end
   end
 
   private
