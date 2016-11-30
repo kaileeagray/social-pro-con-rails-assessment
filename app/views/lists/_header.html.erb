@@ -25,8 +25,11 @@
       </span>
     </div>
   </div>
+  <h2 class="left">
+    <% if list.source%>
+      Source: <%= link_to list.source %>
+    <% end %>
+  </h2>
   <h2 class="left"><%=list.description%></h2>
-  <% if list.source%>
-    <%= link_to list.source %>
-  <% end %>
+
 </div>

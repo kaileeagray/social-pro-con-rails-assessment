@@ -1,23 +1,23 @@
 <% provide(:title, @user.name) %>
 <div class="row white_rounded_shadow">
-      <div class="col-md-8">
-            <%= link_to gravatar_for(@user, size: 80), @user %>
-            <h1 class="left"><%= @user.name %></h1>
-        <% if current_user == @user %>
-            <%= link_to "view my feed", feed_user_path(@user) %>
-          <% end %>
-      </div>
-      <div class="col-md-1">
-        <section class="stats">
-          <%= render 'shared/user_list_count' %>
-        </section>
-      </div>
-      <div class="col-md-1">
-        <section class="stats">
-          <%= render 'users/starred' %>
-        </section>
-      </div>
-    </div>
+  <div class="col-md-4">
+        <%= link_to gravatar_for(@user, size: 80), @user %>
+        <h1 class="left"><%= @user.name %></h1>
+    <% if current_user == @user %>
+        <%= link_to "view my feed", feed_user_path(@user) %>
+      <% end %>
+  </div>
+  <div class="col-md-1 right">
+    <section class="stats">
+      <%= render 'shared/user_list_count' %>
+    </section>
+  </div>
+  <div class="col-md-1 right">
+    <section class="stats">
+      <%= render 'users/starred' %>
+    </section>
+  </div>
+</div>
     <% if @user.lists.any? %>
 
       <ol class="lists">
