@@ -9,5 +9,6 @@ $(function() {
 var showStarrers = function(href) {
      $.get("/lists/" + href + ".json", function(data) {
        console.log(data);
+       
     });
  }
